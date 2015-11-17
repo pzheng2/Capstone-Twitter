@@ -22,7 +22,7 @@ var Map = window.Map = React.createClass({
         "northEast": { "lat": latLngBounds.getNorthEast().lat(), "lng": latLngBounds.getNorthEast().lng() },
         "southWest": { "lat": latLngBounds.getSouthWest().lat(), "lng": latLngBounds.getSouthWest().lng() }
       };
-      ApiUtil.fetchRestaurantsInBounds(bounds);
+      // ApiUtil.fetchRestaurantsInBounds(bounds);
     }.bind(this));
 
   },

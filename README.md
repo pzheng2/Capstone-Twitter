@@ -2,11 +2,11 @@
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://capstone-zelp.herokuapp.com/
 
 ## Minimum Viable Product
 
-Zelp is a web applicaiton inspired by Yelp built using Ruby on Rails and React.js.
+Zelp is a web application inspired by Yelp built using Ruby on Rails and React.js.
 This website will allow users to:
 
 - [x] Create an account
@@ -30,7 +30,6 @@ This website will allow users to:
 - Add validation for restaurant address
 - Make RestaurantForm's underscore methods private
 
-
 ## Implementation Timeline
 
 ### Phase 1: User Authentication, Restaurant Model and JSON API (1 day)
@@ -53,7 +52,7 @@ comments, tags and map.
 - Create restaurant index, restaurant item and restaurant form components.
 - Create map component using Google maps api.
 - Allow users to click the map to make a restaurant at that location.
-- Use google maps geocoding to obtain the address.
+- Use ruby geocoder to obtain the latitude and longitude of restaurants.
 - Users will be able to create, read and edit restaurants at the end of this phase.
 
 [Details][phase-two-a]
