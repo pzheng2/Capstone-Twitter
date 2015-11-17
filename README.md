@@ -1,4 +1,4 @@
-# FresherNote
+# Zelp
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
 
@@ -9,8 +9,8 @@
 Zelp is a web applicaiton inspired by Yelp built using Ruby on Rails and React.js.
 This website will allow users to:
 
-- [ ] Create an account
-- [ ] Log in / Log out
+- [x] Create an account
+- [x] Log in / Log out
 - [ ] CRUD for restaurants
 - [ ] Search for restaurants
 - [ ] CRUD for restaurant reviews
@@ -24,6 +24,11 @@ This website will allow users to:
 
 [view]: ./docs/views.md
 [schema]: ./docs/schema.md
+
+## TODO
+- Only signed in users can see other users
+- Add validation for restaurant address
+
 
 ## Implementation Timeline
 

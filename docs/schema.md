@@ -12,7 +12,7 @@ session_token   | string    | not null, indexed, unique
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-title       | string    | not null
+name        | string    | not null
 address     | text      | not null
 phone       | integer   | not null
 
