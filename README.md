@@ -28,29 +28,33 @@ This website will allow users to:
 ## TODO
 - Only signed in users can see other users
 - Add validation for restaurant address
+- Make RestaurantForm's underscore methods private
 
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Note Model and JSON API (1 day)
+### Phase 1: User Authentication, Restaurant Model and JSON API (1 day)
 
-In Phase 1, I will begin by implementing user signup and authentication (using
-BCrypt). There will be a basic landing page after signup that will contain the
-container for the application's root React component. Before building out the
-front end, I will begin by setting up a full JSON API for Restaurants.
+- Users will be able to create accounts, sign up, sign in and log out.
+- Users will only be able to see other users if they are logged in.
+- After signing in or signing up, users will be redirected to the root page
+- The root page will contain all of the React components such as Restaurants,
+comments, tags and map.
+- Create restaurant model
+- Set up Api and root page
 
 [Details][phase-one]
 
 ### Phase 2a: Flux Architecture and Restaurant CRUD (2 days)
 
-Phase 2a is focused on setting up Flux, the React Router, and the React view
-structure for the main application. After the basic Flux architecture has been
-set up, a Restaurant store will be implemented and a set of actions corresponding to
-the needed CRUD functionality created. Once this is done, I will create React
-views for the Restaurant `Index`, `IndexItem` and `Form`. At the end of Phase 2a,
-Restaurant can be created, read, edited and destroyed in the browser. Restaurants
-should save to the database when the form loses focus or is left idle after editing.
-Lastly, while constructing the views I will start using css for styling.
+- Set up Flux architecture
+- Create restaurant store, App Dispatcher, constants, utils and routes.
+- Create actions for creating a new restaurant and fetching all restaurants
+- Create restaurant index, restaurant item and restaurant form components.
+- Create map component using Google maps api.
+- Allow users to click the map to make a restaurant at that location.
+- Use google maps geocoding to obtain the address.
+- Users will be able to create, read and edit restaurants at the end of this phase.
 
 [Details][phase-two-a]
 
@@ -76,10 +80,10 @@ Tags have a tagging id and a description. Taggings have many tags, restaurants h
 
 ### Phase 5: Reminders and Garbage Collection (1 day)
 
-Phase 5 introduces two new features. First, users can set reminders on notes
+Phase 5 introduces two new features. First, users can set reminders on restaurant
 which will at the time they are set for prompt the user to review and edit the
-given note. In addition, I will implement a feature that asks users to review
-notes once they reach a certain age and ask whether they should be kept,
+given restaurant. In addition, I will implement a feature that asks users to review
+restaurants once they reach a certain age and ask whether they should be kept,
 archived, or deleted.
 
 [Details][phase-five]

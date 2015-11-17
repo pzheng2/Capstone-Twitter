@@ -29,7 +29,6 @@ rating      | integer   | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-taggings_id | integer   | not null, foreign key, indexed
 description | text      | not null, foreign key, indexed
 
 
