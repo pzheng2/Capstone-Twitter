@@ -1,26 +1,24 @@
-# Phase 4: Allow Complex Styling in Notes (1 day)
+# Phase 2b: Flux Architecture and Note CRUD (2 days)
 
 ## Rails
-
 ### Models
-* Tags
 
 ### Controllers
 
 ### Views
-* Restaurant details
-  * tags
-* SearchForm
 
 ## Flux
 ### Views (React Components)
-* Restaurant details
-  * tags
-* SearchForm
+* NavigationIndex
+* AddRestaurantForm
+* HomeIndex
 * RestaurantIndex
+
 
 ### Stores
 
 ### Actions
+
+### ApiUtil
 
 ## Gems/Libraries
