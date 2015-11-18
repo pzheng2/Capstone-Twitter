@@ -20,6 +20,7 @@ $(function () {
       <IndexRoute component={Search}/>
       <Route path="restaurants/new" component={RestaurantForm} />
       <Route path="restaurants/:id/show" component={Restaurant} />
+      <Route path="reviews/new" component={ReviewForm} />
     </Route>
   );
 

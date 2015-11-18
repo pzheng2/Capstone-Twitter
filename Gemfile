@@ -14,6 +14,10 @@ gem 'react-rails', '~> 1.3.0'
 gem 'flux-rails-assets', '~>2.1.0'
 gem 'geocoder'
 
+gem 'paperclip'
+gem 'aws-sdk', '~> 1.6'
+gem 'figaro'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'

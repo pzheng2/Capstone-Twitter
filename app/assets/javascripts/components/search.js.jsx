@@ -7,7 +7,7 @@ var Search = window.Search = React.createClass({
   },
 
   _onChange: function () {
-    
+
   },
 
   render: function () {

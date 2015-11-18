@@ -6,7 +6,6 @@ class Api::RestaurantsController < ApplicationController
     else
       @restaurants = Restaurant.all
     end
-    render json: @restaurants
   end
 
   def create

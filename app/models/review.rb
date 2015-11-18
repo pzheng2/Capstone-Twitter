@@ -11,4 +11,8 @@ class Review < ActiveRecord::Base
 
   belongs_to :restaurant
 
+  def date
+    Date.strptime(created_at.to_s)
+  end
+
 end

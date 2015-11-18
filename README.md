@@ -11,11 +11,14 @@ This website will allow users to:
 
 - [x] Create an account
 - [x] Log in / Log out
-- [x] CRUD for restaurants
+- [x] Restaurants
 - [x] Search for restaurants
-- [ ] CRUD for restaurant reviews
-- [ ] CRUD for restaurant tags
-- [ ] Google maps for restaurant locations
+- [ ] Navigation bar
+- [x] Restaurant reviews
+- [ ] Restaurant tags
+- [x] Google maps for restaurant locations
+- [ ] Search
+- [ ] User Profile
 - [ ] Style the website
 
 ## Design Docs
@@ -30,7 +33,8 @@ This website will allow users to:
 - Add validation for restaurant address
 - Make RestaurantForm's underscore methods private
 - Decide if you want to change the state attributes to instance variables in the map component
-- Add hovering over restaurant names display the info window on the corresponding marker
+- Skipped phase 2b
+- Include restaurant id in review form request
 
 ## Implementation Timeline
 
@@ -52,10 +56,10 @@ comments, tags and map.
 - Create restaurant store, App Dispatcher, constants, utils and routes.
 - Create actions for creating a new restaurant and fetching all restaurants
 - Create restaurant index, restaurant item and restaurant form components.
-- Create map component using Google maps api.
 - Use ruby geocoder to obtain the latitude and longitude of restaurants.
-- Users will be able to create, read and edit restaurants at the end of this phase.
+- Create map component using Google maps api.
 - Create info window for markers
+- Users will be able to create, read and edit restaurants at the end of this phase.
 
 [Details][phase-two-a]
 
@@ -69,7 +73,12 @@ a logo and navigation links utilizing React Routers.
 
 ### Phase 3: Review (1 day)
 
-Reviews have user id, rating, body, and restaurant id. Reviews belong to restaurants and users. JSON API should be able to create reviews, return all of the reviews for a given restaurant or user. The review components should belong to a review Index, which will be nested under the restaurant component. A restaurant will have a rating based off of the average of all its user reviews. There should be the ability to generate a review (only if logged in as a user), edit the review, and view other user's reviews.
+- Create review form
+- Reviews should be shown on the restaurant item page
+- User should be able to navigate to new review page for a restaurant
+- User should be able to create and destroy a review
+- Reviews should have the option of containing a picture
+- Review rating should be from 1-10
 
 [Details][phase-three]
 

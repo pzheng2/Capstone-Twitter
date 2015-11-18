@@ -8,7 +8,8 @@ var Restaurant = window.Restaurant = React.createClass ({
   },
 
   render: function () {
-    restaurant = this.findRestaurant();
+    var restaurant = this.findRestaurant();
+
     return (
       <div>
         <h4>{restaurant.name}</h4>
@@ -20,6 +21,20 @@ var Restaurant = window.Restaurant = React.createClass ({
         <label>
           Phone #:
           {restaurant.phone}
+        </label>
+
+        <br/>
+        <label>
+          Reviews:
+            <ol>
+            {
+              restaurant.reviews.map(function (review) {
+                return (
+                  <li key={review.id}><Review review={review} /></li>
+                );
+              })
+            }
+            </ol>
         </label>
       </div>
     );

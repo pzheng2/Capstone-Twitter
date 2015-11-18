@@ -25,7 +25,7 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
   },
 
   _onHover: function (event) {
-    
+
   },
 
   render: function () {

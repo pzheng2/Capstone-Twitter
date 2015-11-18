@@ -1,7 +1,9 @@
-class Api::ReviewsController < Appplication Controller
+class Api::ReviewsController < ApplicationController
 
   def create
-    @review = Review.new(review_params)
+    debugger
+    current_user_id = current_user.id
+    @review = Review.new(author_id: current_user_id, review_params)
     if !@review.save
       flash.now[:errors] = @review.errors.full_messages
     end
