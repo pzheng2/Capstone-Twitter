@@ -7,6 +7,7 @@ class Restaurant < ActiveRecord::Base
   validates :phone, numericality: true,
             length: { minimum: 10, maximum: 11 }
 
+  has_many :reviews
 
   def self.in_bounds(bounds)
     Restaurant.where("(? > latitude) AND (latitude > ?) AND (? > longitude) AND (longitude > ?)",

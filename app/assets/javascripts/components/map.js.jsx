@@ -16,6 +16,28 @@ var Map = window.Map = React.createClass({
 
     this.map = new google.maps.Map(map, mapOptions);
 
+    var mapStyles = [
+      {
+        stylers: [
+          { saturation: 100 }
+        ]
+      },
+      {
+        featureType: "poi",
+        stylers: [
+          { visibility: "off" }
+        ]
+      },
+      {
+        featureType: "transit.station",
+        stylers: [
+          { visibility: "off" }
+        ]
+      }
+    ];
+
+    this.map.setOptions({ styles: mapStyles });
+
     this.map.addListener('idle', function () {
       var latLngBounds = this.map.getBounds();
       var bounds = {
@@ -41,11 +63,24 @@ var Map = window.Map = React.createClass({
       if (!this.includesRestaurant(this.state.previousRestaurants, restaurant)) {
         var latLng = { lat: restaurant.latitude, lng: restaurant.longitude };
 
+        var contentString = restaurant.name;
+        var infoWindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
         marker = new google.maps.Marker({
           position: latLng,
-          label: (i+1).toString(),
+          label: (i + 1).toString(),
           map: this.map,
           title: restaurant.name
+        });
+
+        marker.addListener('mouseover', function () {
+          infoWindow.open(this.map, marker);
+        });
+
+        marker.addListener('mouseout', function () {
+          infoWindow.close(this.map, marker);
         });
 
         this.state.prevRestaurantMarkers[restaurant.name] = marker;

@@ -1,6 +1,6 @@
 # Zelp
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku]
 
 [heroku]: https://capstone-zelp.herokuapp.com/
 
@@ -30,6 +30,7 @@ This website will allow users to:
 - Add validation for restaurant address
 - Make RestaurantForm's underscore methods private
 - Decide if you want to change the state attributes to instance variables in the map component
+- Add hovering over restaurant names display the info window on the corresponding marker
 
 ## Implementation Timeline
 
@@ -54,6 +55,7 @@ comments, tags and map.
 - Create map component using Google maps api.
 - Use ruby geocoder to obtain the latitude and longitude of restaurants.
 - Users will be able to create, read and edit restaurants at the end of this phase.
+- Create info window for markers
 
 [Details][phase-two-a]
 

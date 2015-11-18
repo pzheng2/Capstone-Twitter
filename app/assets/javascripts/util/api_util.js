@@ -30,6 +30,19 @@ ApiUtil = {
         ApiActions.NewRestaurant(restaurant);
       }
     });
+  },
+
+  createReview: function (reviewParams) {
+    $.ajax ({
+      type: 'POST',
+      url: 'api/reviews',
+      data: { review: reviewParams },
+      success: function (review) {
+        ApiActions.NewReview(review);
+      }
+    })
   }
+
+
 
 };

@@ -12,6 +12,13 @@ ApiActions = {
       actionType: RestaurantConstants.NEW_RESTAURANT,
       restaurant: restaurant
     });
+  },
+
+  NewReview: function (review) {
+    AppDispatcher.dispatch({
+      actionType: ReviewConstants.NEW_REVIEW,
+      review: review
+    })
   }
 
 };

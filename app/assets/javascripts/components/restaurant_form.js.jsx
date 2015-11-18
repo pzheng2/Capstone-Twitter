@@ -7,10 +7,6 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
     };
   },
 
-  componentDidMount: function () {
-
-  },
-
   _onSubmit: function (event) {
     event.preventDefault();
     ApiUtil.createRestaurant({

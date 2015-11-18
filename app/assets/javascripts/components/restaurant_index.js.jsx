@@ -24,13 +24,17 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
       null);
   },
 
+  _onHover: function (event) {
+    
+  },
+
   render: function () {
     return (
       <ol>
         {
           this.state.restaurants.map(function (restaurant) {
             return (
-              <li onClick={this._onClick} id={restaurant.id} key={restaurant.id}>
+              <li onClick={this._onClick} onHover={this._onHover} id={restaurant.id} key={restaurant.id}>
                 {restaurant.name}
               </li>
             );
