@@ -22,18 +22,64 @@ var Map = window.Map = React.createClass({
         "northEast": { "lat": latLngBounds.getNorthEast().lat(), "lng": latLngBounds.getNorthEast().lng() },
         "southWest": { "lat": latLngBounds.getSouthWest().lat(), "lng": latLngBounds.getSouthWest().lng() }
       };
-      // ApiUtil.fetchRestaurantsInBounds(bounds);
+      ApiUtil.fetchRestaurantsInBounds(bounds);
     }.bind(this));
 
   },
 
   componentDidMount: function () {
     this.setupMap();
-
-    // RestaurantStore.addChangeListener(this.manageMarkers);
+    RestaurantStore.addChangeListener(this.manageMarkers);
   },
 
+  componentWillUnmount: function () {
+    RestaurantStore.removeChangeListener(this.manageMarkers);
+  },
 
+  createMarkers: function () {
+    RestaurantStore.all().forEach(function (restaurant, i) {
+      if (!this.includesRestaurant(this.state.previousRestaurants, restaurant)) {
+        var latLng = { lat: restaurant.latitude, lng: restaurant.longitude };
+
+        marker = new google.maps.Marker({
+          position: latLng,
+          label: (i+1).toString(),
+          map: this.map,
+          title: restaurant.name
+        });
+
+        this.state.prevRestaurantMarkers[restaurant.name] = marker;
+        marker.setMap(this.map);
+      }
+    }.bind(this));
+
+  },
+
+  deleteMarkers: function () {
+    this.state.previousRestaurants.forEach(function (prevRestaurant) {
+      if (!this.includesRestaurant(RestaurantStore.all(), prevRestaurant)) {
+        this.state.prevRestaurantMarkers[prevRestaurant.name].setMap(null);
+      }
+    }.bind(this));
+  },
+
+  includesRestaurant: function (arr, restaurant) {
+    for (var i = 0; i < arr.length; i++) {
+      if (restaurant.name === arr[i].name) {
+        return true;
+      }
+    }
+
+    return false;
+  },
+
+  manageMarkers: function () {
+    var markersArr = this.state.markers, marker;
+    this.createMarkers();
+    this.deleteMarkers();
+
+    this.setState({ previousRestaurants: RestaurantStore.all() });
+  },
 
   render: function () {
     return (

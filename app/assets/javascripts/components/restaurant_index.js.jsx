@@ -19,7 +19,6 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
   },
 
   _onClick: function (event) {
-    debugger
     this.history.pushState(null,
       "/restaurants/" + event.currentTarget.id + "/show",
       null);

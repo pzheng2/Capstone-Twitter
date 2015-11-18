@@ -24,6 +24,7 @@ author_id   | integer   | not null, foreign key (references users), indexed
 title       | string    | not null
 description | text      |
 rating      | integer   | not null
+date        | date      | not null
 
 ## tags
 column name | data type | details

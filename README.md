@@ -11,8 +11,8 @@ This website will allow users to:
 
 - [x] Create an account
 - [x] Log in / Log out
-- [ ] CRUD for restaurants
-- [ ] Search for restaurants
+- [x] CRUD for restaurants
+- [x] Search for restaurants
 - [ ] CRUD for restaurant reviews
 - [ ] CRUD for restaurant tags
 - [ ] Google maps for restaurant locations
@@ -29,6 +29,7 @@ This website will allow users to:
 - Only signed in users can see other users
 - Add validation for restaurant address
 - Make RestaurantForm's underscore methods private
+- Decide if you want to change the state attributes to instance variables in the map component
 
 ## Implementation Timeline
 
@@ -51,7 +52,6 @@ comments, tags and map.
 - Create actions for creating a new restaurant and fetching all restaurants
 - Create restaurant index, restaurant item and restaurant form components.
 - Create map component using Google maps api.
-- Allow users to click the map to make a restaurant at that location.
 - Use ruby geocoder to obtain the latitude and longitude of restaurants.
 - Users will be able to create, read and edit restaurants at the end of this phase.
 

@@ -10,8 +10,13 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.create!(restaurant_params)
-    render json: @restaurant
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      flash.now[:errors] = [@restaurant.name + ' successfully created']
+    else
+      flash.now[:errors] = @restaurant.errors.full_messages
+    end
+      render json: @restaurant
   end
 
   private
