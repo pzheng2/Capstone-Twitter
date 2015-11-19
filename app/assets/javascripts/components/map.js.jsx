@@ -2,7 +2,7 @@ var Map = window.Map = React.createClass({
   getInitialState: function () {
     return {
       markers: [],
-      previousRestaurants: RestaurantStore.all(),
+      previousRestaurants: [],
       prevRestaurantMarkers: {}
     };
   },

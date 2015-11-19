@@ -33,6 +33,10 @@
           addRestaurant(payload.restaurant);
           RestaurantStore.emit(CHANGE_EVENT);
           break;
+        case RestaurantConstants.SINGLE_RESTAURANT_RECEIVED:
+          resetRestaurants([payload.restaurant]);
+          RestaurantStore.emit(CHANGE_EVENT);
+          break;
       }
     })
 

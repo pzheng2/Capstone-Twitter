@@ -1,9 +1,11 @@
 var ReviewForm = window.ReviewForm = React.createClass ({
 
+  // mixins: [React.addons.LinkedStateMixin, ReactRouter.history],
+
   getInitialState: function () {
     return {
-      author_id: "", // current_user?
-      restuarant_id: "", // somewhere in the url?
+      author_id: "",
+      restuarant_id: "",
       title: "",
       description: "",
       rating: ""

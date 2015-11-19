@@ -18,6 +18,10 @@ class Api::RestaurantsController < ApplicationController
       render json: @restaurant
   end
 
+  def show
+    @restaurant = Restaurant.find_by_id(params[:id])
+  end
+
   private
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone)

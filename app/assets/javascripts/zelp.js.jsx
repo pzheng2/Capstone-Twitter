@@ -17,10 +17,11 @@ $(function () {
 
   var routes = (
     <Route path="/" component={App}>
-      <IndexRoute component={Search}/>
+      <IndexRoute component={Search} />
       <Route path="restaurants/new" component={RestaurantForm} />
-      <Route path="restaurants/:id/show" component={Restaurant} />
-      <Route path="reviews/new" component={ReviewForm} />
+      <Route path="restaurants/:id" component={Restaurant}>
+        <Route path="review" component={ReviewForm} />
+      </Route>
     </Route>
   );
 

@@ -21,6 +21,18 @@ ApiUtil = {
     });
   },
 
+  fetchSingleRestaurant: function (id, callback) {
+    $.ajax ({
+      type: 'GET',
+      url: 'api/restaurants/' + id,
+      success: function (restaurant) {
+        debugger
+        callback && callback(restaurant);
+        ApiActions.ReceiveSingleRestaurant(restaurant);
+      }
+    });
+  },
+
   createRestaurant: function (restaurantParams) {
     $.ajax ({
       type: 'POST',
@@ -40,9 +52,7 @@ ApiUtil = {
       success: function (review) {
         ApiActions.NewReview(review);
       }
-    })
+    });
   }
-
-
 
 };

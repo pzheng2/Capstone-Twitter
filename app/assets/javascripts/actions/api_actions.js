@@ -7,6 +7,13 @@ ApiActions = {
     });
   },
 
+  ReceiveSingleRestaurant: function (restaurant) {
+    AppDispatcher.dispatch({
+      actionType: RestaurantConstants.SINGLE_RESTAURANT_RECEIVED,
+      restaurant: restaurant
+    });
+  },
+
   NewRestaurant: function (restaurant) {
     AppDispatcher.dispatch({
       actionType: RestaurantConstants.NEW_RESTAURANT,
@@ -18,7 +25,7 @@ ApiActions = {
     AppDispatcher.dispatch({
       actionType: ReviewConstants.NEW_REVIEW,
       review: review
-    })
+    });
   }
 
 };
