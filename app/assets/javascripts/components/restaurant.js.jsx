@@ -3,15 +3,9 @@ var Restaurant = window.Restaurant = React.createClass ({
     router: React.PropTypes.func
   },
 
-  // getInitialState: function () {
-    // var restaurantId = parseInt(this.props.params.id);
-    // var restaurant = this._findRestaurantById(restaurantId);
-    // if (!restaurant) {
-    //   ApiUtil.fetchSingleRestaurant(restaurantId, this._receivedRestaurant);
-    // }
-    // return { restaurant: restaurant };
-  // },
   getInitialState: function () {
+    this.restaurantId = this.props.params.id;
+    ApiUtil.fetchSingleRestaurant(this.restaurantId, this._receivedRestaurant);
     var loadingRestaurant = {
       name: "loading",
       address: "loading",
@@ -36,17 +30,6 @@ var Restaurant = window.Restaurant = React.createClass ({
     return foundRestaurant;
   },
 
-  // findRestaurant: function () {
-  //   this.restaurant = RestaurantStore.all().find(function (restaurant) {
-  //     return restaurant.id === parseInt(this.props.params.id);
-  //   }.bind(this));
-  // },
-
-  componentDidMount: function () {
-    // RestaurantStore.addChangeListener(this._restaurantChanged);
-    ApiUtil.fetchSingleRestaurant(1, this._receivedRestaurant);
-  },
-
   _restaurantChanged: function () {
     var restaurantId = this.props.params.id;
     var restaurant = this._findRestaurantById(restaurantId);
@@ -55,12 +38,11 @@ var Restaurant = window.Restaurant = React.createClass ({
 
   render: function () {
     var Link = ReactRouter.Link;
-    var reviewURL = "/restuarants/" + 1 + "/review";
+    var reviewURL = "/restuarants/" + this.restaurantId + "/review";
 
     return (
       <div>
         <Link to="/">Back to Restaurants Index</Link>
-        <Link to={"/restuarants/" + 1 + "/review"}>Leave a Review</Link>
         <h4>{this.state.restaurant.name}</h4>
         <label>
           Address:
@@ -85,6 +67,10 @@ var Restaurant = window.Restaurant = React.createClass ({
             }
             </ol>
         </label>
+        {
+          this.props.children ||
+          <Link to={"/restaurants/" + this.restaurantId + "/review"}>Leave a Review</Link>
+        }
       </div>
     );
   }

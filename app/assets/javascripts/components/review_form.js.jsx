@@ -4,12 +4,15 @@ var ReviewForm = window.ReviewForm = React.createClass ({
 
   getInitialState: function () {
     return {
-      author_id: "",
-      restuarant_id: "",
       title: "",
       description: "",
-      rating: ""
+      rating: 5
     };
+  },
+
+  navigateToShow: function () {
+    var restaurantURL = "/restaurants/" + this.props.params.id;
+    this.props.history.pushState(null, restaurantURL);
   },
 
   _updateTitle: function (event) {
@@ -27,32 +30,43 @@ var ReviewForm = window.ReviewForm = React.createClass ({
   _onSubmit: function (event) {
     event.preventDefault();
     ApiUtil.createReview({
-        title: this.state.title,
-        description: this.state.description,
-        rating: this.state.rating
+      author_id: 1,
+      restaurant_id: this.props.params.id,
+      title: this.state.title,
+      description: this.state.description,
+      rating: this.state.rating
     });
+    this.navigateToShow();
+  },
+
+  _onCancel: function (event) {
+    event.preventDefault();
+    this.navigateToShow();
   },
 
   render: function () {
     return (
-      <form onSubmit={this._onSubmit}>
-        <label>
-          Title:
-          <input type="text" onChange={this._updateTitle} value={this.state.title} />
-        </label>
+      <div>
+        <form onSubmit={this._onSubmit}>
+          <label>
+            Title:
+            <input type="text" onChange={this._updateTitle} value={this.state.title} />
+          </label>
 
-        <label>
-          Description:
-          <input type="text" onChange={this._updateDescription} value={this.state.description} />
-        </label>
+          <label>
+            Description:
+            <input type="text" onChange={this._updateDescription} value={this.state.description} />
+          </label>
 
-        <label>
-          Rating:
-          <input type="text" onChange={this._updateRating} value={this.state.rating} />
-        </label>
+          <label>
+            Rating:
+            <input type="text" onChange={this._updateRating} value={this.state.rating} />
+          </label>
 
-        <button>submit</button>
-      </form>
+          <button>submit</button>
+        </form>
+        <button onClick={this._onCancel}>Cancel</button>
+      </div>
     );
   }
 

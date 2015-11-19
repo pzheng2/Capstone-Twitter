@@ -1,8 +1,7 @@
 class Api::ReviewsController < ApplicationController
 
   def create
-    current_user_id = current_user.id
-    @review = Review.new(author_id: current_user_id, review_params)
+    @review = Review.new(review_params)
     if !@review.save
       flash.now[:errors] = @review.errors.full_messages
     end
@@ -19,7 +18,7 @@ class Api::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.permit(:review).require(:title, :description, :rating)
+    params.require(:review).permit(:author_id, :restaurant_id, :title, :description, :rating)
   end
 
 end

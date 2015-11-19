@@ -26,9 +26,8 @@ ApiUtil = {
       type: 'GET',
       url: 'api/restaurants/' + id,
       success: function (restaurant) {
-        debugger
-        callback && callback(restaurant);
         ApiActions.ReceiveSingleRestaurant(restaurant);
+        callback && callback(restaurant);
       }
     });
   },
@@ -45,6 +44,7 @@ ApiUtil = {
   },
 
   createReview: function (reviewParams) {
+    debugger
     $.ajax ({
       type: 'POST',
       url: 'api/reviews',

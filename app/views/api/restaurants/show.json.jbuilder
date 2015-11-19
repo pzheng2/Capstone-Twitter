@@ -5,6 +5,7 @@ json.phone @restaurant.phone
 json.latitude @restaurant.latitude
 json.longitude @restaurant.longitude
 json.reviews @restaurant.reviews do |review|
+  json.id review.id
   json.title review.title
   json.description review.description
   json.rating review.rating
