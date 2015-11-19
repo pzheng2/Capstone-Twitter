@@ -1,4 +1,5 @@
 var RestaurantIndex = window.RestaurantIndex = React.createClass({
+
   mixins: [ReactRouter.History],
 
   getInitialState: function () {

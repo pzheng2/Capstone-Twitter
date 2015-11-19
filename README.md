@@ -35,6 +35,7 @@ This website will allow users to:
 - Skipped phase 2b
 - Get author in restaurant store
 - Fix hard coded user id in review form
+- Create JBuilder for users
 
 ## Implementation Timeline
 

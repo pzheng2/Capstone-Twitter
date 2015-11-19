@@ -18,6 +18,7 @@ $(function () {
   var routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Search} />
+      <Route path="users" component={UserIndex} />
       <Route path="restaurants/new" component={RestaurantForm} />
       <Route path="restaurants/:id" component={Restaurant}>
         <Route path="review" component={ReviewForm} />

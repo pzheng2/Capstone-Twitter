@@ -1,5 +1,16 @@
 ApiUtil = {
 
+  fetchUsers: function () {
+    debugger
+    $.ajax ({
+      type: 'GET',
+      url: 'api/users',
+      success: function (users) {
+        ApiActions.ReceiveAllUsers(users);
+      }
+    });
+  },
+
   fetchRestaurantsInBounds: function (bounds) {
     $.ajax ({
       type: 'GET',

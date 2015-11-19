@@ -1,5 +1,12 @@
 ApiActions = {
 
+  ReceiveAllUsers: function (users) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.RECEIVE_USERS,
+      users: users
+    });
+  },
+
   ReceiveAllRestaurants: function (restaurants) {
     AppDispatcher.dispatch({
       actionType: RestaurantConstants.RESTAURANTS_RECEIVED,

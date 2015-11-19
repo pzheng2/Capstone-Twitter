@@ -23,10 +23,6 @@
     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
   };
 
-  // var getAuthor = function (review) {
-  //
-  // };
-
   root.RestaurantStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
       return _restaurants.slice();
