@@ -34,7 +34,7 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
         {
           this.state.restaurants.map(function (restaurant) {
             return (
-              <li onClick={this._onClick} onHover={this._onHover} id={restaurant.id} key={restaurant.id}>
+              <li className="restaurant-index-items" onClick={this._onClick} onHover={this._onHover} id={restaurant.id} key={restaurant.id}>
                 {restaurant.name}
               </li>
             );

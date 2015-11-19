@@ -13,8 +13,112 @@
  *= require_tree .
  *= require_self
  */
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
 
 .map {
+  display: block;
   width: 500px;
   height: 500px;
+  margin: auto;
+}
+
+.nav {
+  display: block;
+  height: 100px;
+  width: auto;
+  background: gray;
+}
+
+#content {
+  background: beige;
+}
+
+.restaurant-name {
+  display: block;
+}
+
+.restaurant-index-items {
+  font-size: 16px;
+  display: block;
+  padding: 10px;
+  margin: 5px;
+  background: white;
+}
+
+.restaurant-index-items:hover {
+  background: tomato;
+  color: white;
+}
+
+.review {
+  display: block;
+  width: 400px;
+  padding: 10px;
+  margin: 5px;
+  background: white;
+}
+
+.review-title {
+  display: block;
+  font-weight: bold;
+  font-size: 24px;
 }

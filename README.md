@@ -29,12 +29,12 @@ This website will allow users to:
 [schema]: ./docs/schema.md
 
 ## TODO
-- Only signed in users can see other users
-- Add validation for restaurant address
+- Only signed in users can post reviews
 - Make RestaurantForm's underscore methods private
 - Decide if you want to change the state attributes to instance variables in the map component
 - Skipped phase 2b
-- Include restaurant id in review form request
+- Get author in restaurant store
+- Fix hard coded user id in review form
 
 ## Implementation Timeline
 

@@ -27,6 +27,10 @@ var ReviewForm = window.ReviewForm = React.createClass ({
     this.setState({ rating: event.currentTarget.value });
   },
 
+  errorCallback: function (jqXHR, textStatus) {
+    console.log(jqXHR, textStatus);
+  },
+
   _onSubmit: function (event) {
     event.preventDefault();
     ApiUtil.createReview({
@@ -35,7 +39,7 @@ var ReviewForm = window.ReviewForm = React.createClass ({
       title: this.state.title,
       description: this.state.description,
       rating: this.state.rating
-    });
+    }, this.errorCallback);
     this.navigateToShow();
   },
 

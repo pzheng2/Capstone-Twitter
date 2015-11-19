@@ -4,7 +4,7 @@ var Restaurant = window.Restaurant = React.createClass ({
   },
 
   getInitialState: function () {
-    this.restaurantId = this.props.params.id;
+    this.restaurantId = parseInt(this.props.params.id);
     ApiUtil.fetchSingleRestaurant(this.restaurantId, this._receivedRestaurant);
     var loadingRestaurant = {
       name: "loading",
@@ -15,15 +15,22 @@ var Restaurant = window.Restaurant = React.createClass ({
     return { restaurant: loadingRestaurant };
   },
 
+  componentDidMount: function () {
+    RestaurantStore.addChangeListener(this._restaurantChanged);
+  },
+
+  componentWillUnmount: function () {
+    RestaurantStore.removeChangeListener(this._restaurantChanged);
+  },
+
   _receivedRestaurant: function (restaurant) {
     this.setState({ restaurant: restaurant });
   },
 
-  _findRestaurantById: function (id) {
+  _findRestaurantById: function () {
     var foundRestaurant;
-
     RestaurantStore.all().forEach(function (restaurant) {
-      if (id === restaurant.id) {
+      if (this.restaurantId === restaurant.id) {
         foundRestaurant = restaurant;
       }
     }.bind(this));
@@ -31,8 +38,7 @@ var Restaurant = window.Restaurant = React.createClass ({
   },
 
   _restaurantChanged: function () {
-    var restaurantId = this.props.params.id;
-    var restaurant = this._findRestaurantById(restaurantId);
+    var restaurant = this._findRestaurantById();
     this.setState({ restaurant: restaurant });
   },
 
@@ -43,7 +49,7 @@ var Restaurant = window.Restaurant = React.createClass ({
     return (
       <div>
         <Link to="/">Back to Restaurants Index</Link>
-        <h4>{this.state.restaurant.name}</h4>
+        <h4 className="restaurant-name">{this.state.restaurant.name}</h4>
         <label>
           Address:
           {this.state.restaurant.address}
@@ -61,7 +67,7 @@ var Restaurant = window.Restaurant = React.createClass ({
             {
               this.state.restaurant.reviews.map(function (review) {
                 return (
-                  <li key={review.id}><Review review={review} /></li>
+                  <li className="review" key={review.id}><Review review={review} /></li>
                 );
               })
             }

@@ -10,6 +10,23 @@
     _restaurants.push(restaurant);
   };
 
+  var addReview = function (review) {
+    _restaurants.forEach(function (restaurant) {
+      if (restaurant.id === review.restaurant_id) {
+        restaurant.reviews.push(review);
+      }
+    });
+  };
+
+  var getDate = function () {
+    var date = new Date();
+    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+  };
+
+  // var getAuthor = function (review) {
+  //
+  // };
+
   root.RestaurantStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
       return _restaurants.slice();
@@ -35,6 +52,12 @@
           break;
         case RestaurantConstants.SINGLE_RESTAURANT_RECEIVED:
           resetRestaurants([payload.restaurant]);
+          RestaurantStore.emit(CHANGE_EVENT);
+          break;
+        case ReviewConstants.NEW_REVIEW:
+          payload.review.date = getDate();
+          // payload.review.author = getAuthor();
+          addReview(payload.review);
           RestaurantStore.emit(CHANGE_EVENT);
           break;
       }

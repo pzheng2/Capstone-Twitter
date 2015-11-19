@@ -22,7 +22,6 @@ ApiActions = {
   },
 
   NewReview: function (review) {
-    debugger
     AppDispatcher.dispatch({
       actionType: ReviewConstants.NEW_REVIEW,
       review: review

@@ -8,7 +8,7 @@ $(function () {
     render: function () {
       return (
         <div>
-          <header><h1>Zelp</h1></header>
+          <NavigationBar />
           {this.props.children}
         </div>
       );

@@ -43,14 +43,16 @@ ApiUtil = {
     });
   },
 
-  createReview: function (reviewParams) {
-    debugger
+  createReview: function (reviewParams, errorCallback) {
     $.ajax ({
       type: 'POST',
       url: 'api/reviews',
       data: { review: reviewParams },
       success: function (review) {
         ApiActions.NewReview(review);
+      },
+      error: function (jqXHR, textStatus) {
+        errorCallback();
       }
     });
   }
