@@ -1,9 +1,15 @@
 var NavigationBar = window.NavigationBar = React.createClass ({
 
+  mixins: [ReactRouter.History],
+
   getInitialState: function () {
     return {
       currentUser: CurrentUserStore.currentUser()
     };
+  },
+
+  redirectToRoot: function () {
+    this.history.pushState(null, "/#");
   },
 
   componentDidMount: function () {
@@ -28,7 +34,7 @@ var NavigationBar = window.NavigationBar = React.createClass ({
       options = (
         <div>
           Logged in as
-          { this.state.currentUser.username }
+          { " "+this.state.currentUser.username }
           <button onClick={ this.logout }>LOG OUT</button>
         </div>
       );
@@ -42,7 +48,7 @@ var NavigationBar = window.NavigationBar = React.createClass ({
 
     return (
       <div className="nav">
-        <header><h1>Zelp</h1></header>
+        <header><h1 onClick={this.redirectToRoot}>Zelp</h1></header>
         { options }
       </div>
     );

@@ -1,18 +1,43 @@
 var ReviewForm = window.ReviewForm = React.createClass ({
 
-  // mixins: [React.addons.LinkedStateMixin, ReactRouter.history],
+  mixins: [ReactRouter.History],
 
   getInitialState: function () {
     return {
+      author: CurrentUserStore.currentUser(),
       title: "",
       description: "",
-      rating: 5
+      rating: 5,
+      errors: null
     };
+  },
+
+  componentDidMount: function () {
+    // CurrentUserStore.addChangeListener(this._ensureLoggedIn);
+    this._ensureLoggedIn();
+    this.setState(this.props.location.state);
+  },
+
+  componentWillUnmount: function () {
+    // CurrentUserStore.removeChangeListener(this._ensureLoggedIn);
+  },
+
+  _ensureLoggedIn: function () {
+    if (!CurrentUserStore.isLoggedIn()) {
+      this.history.pushState(null, "/login");
+    }
+
+    this.setState({currentUser: CurrentUserStore.currentUser()});
   },
 
   navigateToShow: function () {
     var restaurantURL = "/restaurants/" + this.props.params.id;
     this.props.history.pushState(null, restaurantURL);
+  },
+
+  navigateBackToForm: function (newState) {
+    var restaurantURL = "/restaurants/" + this.props.params.id + "/review";
+    this.props.history.pushState(newState, restaurantURL);
   },
 
   _updateTitle: function (event) {
@@ -27,14 +52,21 @@ var ReviewForm = window.ReviewForm = React.createClass ({
     this.setState({ rating: event.currentTarget.value });
   },
 
-  errorCallback: function (jqXHR, textStatus) {
-    console.log(jqXHR, textStatus);
+  errorCallback: function (errors) {
+    this.navigateBackToForm({
+      author: CurrentUserStore.currentUser(),
+      title: this.state.title,
+      description: this.state.description,
+      rating: this.state.rating,
+      errors: errors
+    });
   },
 
   _onSubmit: function (event) {
     event.preventDefault();
+    this.state.errors = null;
     ApiUtil.createReview({
-      author_id: 1,
+      author_id: this.state.author.id,
       restaurant_id: this.props.params.id,
       title: this.state.title,
       description: this.state.description,
@@ -49,8 +81,15 @@ var ReviewForm = window.ReviewForm = React.createClass ({
   },
 
   render: function () {
+    var errors ="";
+
+    if (this.state.errors) {
+      errors = <div className="errors"> { this.state.errors.responseJSON.join(", ") } </div>;
+    }
+
     return (
       <div>
+      {errors}
         <form onSubmit={this._onSubmit}>
           <label>
             Title:

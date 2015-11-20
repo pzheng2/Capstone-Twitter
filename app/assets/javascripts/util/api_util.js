@@ -61,8 +61,8 @@ ApiUtil = {
       success: function (review) {
         ApiActions.NewReview(review);
       },
-      error: function (jqXHR, textStatus) {
-        errorCallback();
+      error: function (errors) {
+        errorCallback(errors);
       }
     });
   }

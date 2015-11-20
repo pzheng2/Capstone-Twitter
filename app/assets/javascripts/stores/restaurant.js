@@ -52,7 +52,7 @@
           break;
         case ReviewConstants.NEW_REVIEW:
           payload.review.date = getDate();
-          // payload.review.author = getAuthor();
+          payload.review.author = CurrentUserStore.currentUser().username;
           addReview(payload.review);
           RestaurantStore.emit(CHANGE_EVENT);
           break;

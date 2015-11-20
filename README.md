@@ -33,8 +33,6 @@ This website will allow users to:
 - Make RestaurantForm's underscore methods private
 - Decide if you want to change the state attributes to instance variables in the map component
 - Skipped phase 2b
-- Get author in restaurant store
-- Fix hard coded user id in review form
 - Create JBuilder for users
 
 ## Implementation Timeline

@@ -6,17 +6,11 @@ var App = React.createClass ({
   mixins: [ReactRouter.History],
 
   componentDidMount: function () {
-    // CurrentUserStore.addChangeListener(this._ensureLoggedIn);
     SessionsApiUtil.fetchCurrentUser();
   },
 
+  componentWillUnmount: function () {
 
-  _ensureLoggedIn: function () {
-    if (!CurrentUserStore.isLoggedIn()) {
-      this.history.pushState(null, "/login");
-    }
-
-    this.setState({currentUser: CurrentUserStore.currentUser()});
   },
 
   render: function () {

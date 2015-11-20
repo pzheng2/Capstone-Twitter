@@ -122,3 +122,12 @@ ul {
   font-weight: bold;
   font-size: 24px;
 }
+
+button {
+  display: block;
+  background: yellow;
+}
+
+a {
+  background: #6666CC;
+}

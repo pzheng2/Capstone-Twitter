@@ -30,6 +30,8 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
   },
 
   render: function () {
+    var Link = ReactRouter.Link;
+
     return (
       <ol>
         {
@@ -41,6 +43,8 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
             );
           }.bind(this))
         }
+
+        <Link to="/restaurants/new">Create New Restaurant</Link>
       </ol>
     );
   }
