@@ -29,7 +29,9 @@ var NavigationBar = window.NavigationBar = React.createClass ({
   },
 
   render: function () {
+    var Link = ReactRouter.Link;
     var options;
+
     if (CurrentUserStore.isLoggedIn()) {
       options = (
         <div>
@@ -50,6 +52,7 @@ var NavigationBar = window.NavigationBar = React.createClass ({
       <div className="nav">
         <header><h1 onClick={this.redirectToRoot}>Zelp</h1></header>
         { options }
+        <Link to="/users/new">Sign Up!</Link>
       </div>
     );
   }

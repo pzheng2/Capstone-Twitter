@@ -9,6 +9,7 @@ $(function () {
       <IndexRoute component={ Search } />
       <Route path="login" component={ SessionForm } />
       <Route path="users" component={ UserIndex } />
+      <Route path="users/new" component={ UserForm } />
       <Route path="users/:id" component={ UserShow } />
       <Route path="restaurants/new" component={ RestaurantForm } />
       <Route path="restaurants/:id" component={ Restaurant }>

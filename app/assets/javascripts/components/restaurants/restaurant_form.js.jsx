@@ -22,8 +22,8 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
     this.setState({ name: "", address: "", phone: "" });
   },
 
-  navigateToShow: function (id) {
-    var restaurantURL = "/restaurants/" + id;
+  navigateToShow: function (restaurantId) {
+    var restaurantURL = "/restaurants/" + restaurantId;
     this.props.history.pushState(null, restaurantURL);
   },
 

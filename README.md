@@ -29,7 +29,6 @@ This website will allow users to:
 [schema]: ./docs/schema.md
 
 ## TODO
-- Only signed in users can post reviews
 - Make RestaurantForm's underscore methods private
 - Decide if you want to change the state attributes to instance variables in the map component
 - Skipped phase 2b

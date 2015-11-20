@@ -1,5 +1,5 @@
 UsersApiUtil = {
-  
+
   fetchUsers: function () {
     $.ajax({
       url: '/api/users',
@@ -22,15 +22,18 @@ UsersApiUtil = {
     });
   },
 
-  createUser: function (attrs, callback) {
+  createUser: function (credentials, successCallback, errorCallback) {
     $.ajax({
       url: '/api/users',
       type: 'POST',
       dataType: 'json',
-      data: attrs,
+      data: { user: credentials },
       success: function (user) {
         UserActions.receiveUser(user);
-        callback && callback();
+        successCallback && successCallback(user);
+      },
+      error: function (errors) {
+        errorCallback && errorCallback(errors);
       }
     });
   }
