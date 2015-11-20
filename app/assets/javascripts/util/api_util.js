@@ -1,7 +1,6 @@
 ApiUtil = {
 
   fetchUsers: function () {
-    debugger
     $.ajax ({
       type: 'GET',
       url: 'api/users',
