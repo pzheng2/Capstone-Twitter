@@ -42,27 +42,32 @@ ApiUtil = {
     });
   },
 
-  createRestaurant: function (restaurantParams) {
+  createRestaurant: function (restaurantParams, successCallback, errorCallback) {
     $.ajax ({
       type: 'POST',
       url: 'api/restaurants',
       data: { restaurant: restaurantParams },
       success: function (restaurant) {
         ApiActions.NewRestaurant(restaurant);
+        successCallback && successCallback(restaurant);
+      },
+      error: function (errors) {
+        errorCallback && errorCallback(errors);
       }
     });
   },
 
-  createReview: function (reviewParams, errorCallback) {
+  createReview: function (reviewParams, successCallback, errorCallback) {
     $.ajax ({
       type: 'POST',
       url: 'api/reviews',
       data: { review: reviewParams },
       success: function (review) {
         ApiActions.NewReview(review);
+        successCallback && successCallback();
       },
       error: function (errors) {
-        errorCallback(errors);
+        errorCallback && errorCallback(errors);
       }
     });
   }

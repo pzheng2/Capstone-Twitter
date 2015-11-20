@@ -1,15 +1,17 @@
 SessionsApiUtil = {
 
-  login: function (credentials, success) {
+  login: function (credentials, successCallback, errorCallback) {
     $.ajax({
       type: 'POST',
       url: '/api/session',
       dataType: 'json',
       data: credentials,
       success: function (currentUser) {
-        console.log("logged in!");
         CurrentUserActions.receiveCurrentUser(currentUser);
-        success && success();
+        successCallback && successCallback(currentUser);
+      },
+      error: function (errors) {
+        errorCallback && errorCallback(errors);
       }
     });
   },
@@ -25,13 +27,14 @@ SessionsApiUtil = {
     });
   },
 
-  fetchCurrentUser: function () {
+  fetchCurrentUser: function (successCallback) {
     $.ajax({
      url: '/api/session',
      type: 'GET',
      dataType: 'json',
      success: function (currentUser) {
        CurrentUserActions.receiveCurrentUser(currentUser);
+       successCallback && successCallback(currentUser);
      }
    });
   }

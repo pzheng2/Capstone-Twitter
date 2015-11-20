@@ -13,31 +13,32 @@ var ReviewForm = window.ReviewForm = React.createClass ({
   },
 
   componentDidMount: function () {
-    // CurrentUserStore.addChangeListener(this._ensureLoggedIn);
-    this._ensureLoggedIn();
-    this.setState(this.props.location.state);
+    SessionsApiUtil.fetchCurrentUser(this._ensureLoggedIn);
+    CurrentUserStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function () {
-    // CurrentUserStore.removeChangeListener(this._ensureLoggedIn);
+    CurrentUserStore.removeChangeListener(this._onChange);
   },
 
-  _ensureLoggedIn: function () {
-    if (!CurrentUserStore.isLoggedIn()) {
-      this.history.pushState(null, "/login");
+  _onChange: function () {
+    this.setState({ author: CurrentUserStore.currentUser() });
+  },
+
+  _ensureLoggedIn: function (currentUser) {
+    if (!currentUser.username) {
+      this.history.pushState(
+        { errors: "Need to be logged in to write review" },
+        "/login"
+      );
     }
 
-    this.setState({currentUser: CurrentUserStore.currentUser()});
+    this.setState({ author: currentUser });
   },
 
   navigateToShow: function () {
     var restaurantURL = "/restaurants/" + this.props.params.id;
     this.props.history.pushState(null, restaurantURL);
-  },
-
-  navigateBackToForm: function (newState) {
-    var restaurantURL = "/restaurants/" + this.props.params.id + "/review";
-    this.props.history.pushState(newState, restaurantURL);
   },
 
   _updateTitle: function (event) {
@@ -53,13 +54,11 @@ var ReviewForm = window.ReviewForm = React.createClass ({
   },
 
   errorCallback: function (errors) {
-    this.navigateBackToForm({
-      author: CurrentUserStore.currentUser(),
-      title: this.state.title,
-      description: this.state.description,
-      rating: this.state.rating,
-      errors: errors
-    });
+    this.setState({ errors: errors });
+  },
+
+  successCallback: function () {
+    this.navigateToShow();
   },
 
   _onSubmit: function (event) {
@@ -71,8 +70,7 @@ var ReviewForm = window.ReviewForm = React.createClass ({
       title: this.state.title,
       description: this.state.description,
       rating: this.state.rating
-    }, this.errorCallback);
-    this.navigateToShow();
+    }, this.successCallback, this.errorCallback);
   },
 
   _onCancel: function (event) {
@@ -81,15 +79,22 @@ var ReviewForm = window.ReviewForm = React.createClass ({
   },
 
   render: function () {
-    var errors ="";
-
+    var errors = [];
     if (this.state.errors) {
-      errors = <div className="errors"> { this.state.errors.responseJSON.join(", ") } </div>;
+      for (var i = 0; i < this.state.errors.responseJSON.length; i++) {
+        errors.push(this.state.errors.responseJSON[i]);
+      }
     }
 
     return (
       <div>
-      {errors}
+        <div className="errors">
+          {
+            errors.map(function (error) {
+              return <div>{error}</div>;
+            })
+          }
+        </div>
         <form onSubmit={this._onSubmit}>
           <label>
             Title:
@@ -106,7 +111,7 @@ var ReviewForm = window.ReviewForm = React.createClass ({
             <input type="text" onChange={this._updateRating} value={this.state.rating} />
           </label>
 
-          <button>submit</button>
+          <button>Submit</button>
         </form>
         <button onClick={this._onCancel}>Cancel</button>
       </div>

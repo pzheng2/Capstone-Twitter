@@ -11,11 +11,10 @@ class Api::RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
-      flash.now[:errors] = [@restaurant.name + ' successfully created']
-    else
-      flash.now[:errors] = @restaurant.errors.full_messages
-    end
       render json: @restaurant
+    else
+      render json: @restaurant.errors.full_messages, status: 400
+    end
   end
 
   def show

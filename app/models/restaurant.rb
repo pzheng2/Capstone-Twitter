@@ -3,7 +3,7 @@ class Restaurant < ActiveRecord::Base
   before_validation :geocode, :if => lambda{ |restaurant| restaurant.address_changed? }
 
   validates :name, :address, :phone, :longitude, :latitude, presence: true
-  validates :latitude, :longitude, presence: true
+  validates :address, uniqueness: true
   validates :phone, numericality: true,
             length: { minimum: 10, maximum: 11 }
 

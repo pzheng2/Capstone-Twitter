@@ -2,7 +2,8 @@ class Api::SessionsController < ApplicationController
 
   def show
     unless current_user
-      render json: {}
+      # render json: { errors: ["Need to log in to write review"] }, status: 400
+      render json: { username: "" }
       return
     end
 
@@ -15,9 +16,8 @@ class Api::SessionsController < ApplicationController
       params[:username],
       params[:password]
     )
-
     if @user.nil?
-      render json: {errors: ["Wrong!"]}, status: 401
+      render json: { errors: "Wrong credentials" }, status: 400
     else
       sign_in(@user)
       render 'api/users/show'
