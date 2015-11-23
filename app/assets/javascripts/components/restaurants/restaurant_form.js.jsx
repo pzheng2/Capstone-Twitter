@@ -7,19 +7,10 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
       name: "",
       address: "",
       phone: "",
+      imageUrl: "",
+      imageFile: null,
       errors: null
     };
-  },
-
-  _onSubmit: function (event) {
-    event.preventDefault();
-    ApiUtil.createRestaurant({
-        name: this.state.name,
-        address: this.state.address,
-        phone: this.state.phone
-    }, this.successCallback, this.errorCallback);
-
-    this.setState({ name: "", address: "", phone: "" });
   },
 
   navigateToShow: function (restaurantId) {
@@ -47,6 +38,34 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
     this.setState({ phone: event.currentTarget.value });
   },
 
+  _updateFile: function (event) {
+    var reader = new FileReader();
+    var file = e.currentTarget.files[0];
+
+    reader.onload = function () {
+      this.setState({ imageUrl: reader.result, imageFile:file });
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null });
+    }
+  },
+
+  _onSubmit: function (event) {
+    event.preventDefault();
+
+    ApiUtil.createRestaurant({
+        name: this.state.name,
+        address: this.state.address,
+        phone: this.state.phone,
+        image: this.state.imageFile
+    }, this.successCallback, this.errorCallback);
+
+    this.setState({ name: "", address: "", phone: "" });
+  },
+
   render: function () {
     var Link = ReactRouter.Link;
     var errors = [];
@@ -68,17 +87,22 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
         <form onSubmit={this._onSubmit}>
           <label>
             Name:
-            <input type="text" onChange={this._updateName} value={this.state.name} />
+            <input type="text" onChange={this._updateName} value={ this.state.name } />
           </label>
 
           <label>
             Address:
-            <input type="text" onChange={this._updateAddress} value={this.state.address} />
+            <input type="text" onChange={this._updateAddress} value={ this.state.address } />
           </label>
 
           <label>
             Phone #:
-            <input type="text" onChange={this._updatePhone} value={this.state.phone} />
+            <input type="text" onChange={this._updatePhone} value={ this.state.phone } />
+          </label>
+
+          <label>
+            Picture:
+            <input type="file" onChange={this._updateFile} value={ this.state.imageUrl } />
           </label>
 
           <button>submit</button>

@@ -51,6 +51,10 @@ var Restaurant = window.Restaurant = React.createClass ({
         <Link to="/">Back to Restaurants Index</Link>
         <h4 className="restaurant-name">{this.state.restaurant.name}</h4>
         <label>
+          <img className="restaurant-image" src={this.state.restaurant.image_url} />
+        </label>
+
+        <label>
           Address:
           {this.state.restaurant.address}
         </label>
