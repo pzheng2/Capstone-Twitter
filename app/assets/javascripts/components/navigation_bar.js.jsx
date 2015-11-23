@@ -37,13 +37,13 @@ var NavigationBar = window.NavigationBar = React.createClass ({
         <div>
           Logged in as
           { " "+this.state.currentUser.username }
-          <button onClick={ this.logout }>LOG OUT</button>
+          <button className="button logout" onClick={ this.logout }>Log out</button>
         </div>
       );
     } else {
       options = (
         <div>
-          <a href="#/login">Login</a>
+          <a className="button login" href="#/login">Login</a>
         </div>
       );
     }
@@ -56,7 +56,7 @@ var NavigationBar = window.NavigationBar = React.createClass ({
             { options }
           </li>
           <li>
-            <Link to="/users/new">Sign Up!</Link>
+            <Link className="button signup" to="/users/new">Sign Up!</Link>
           </li>
         </ul>
       </div>

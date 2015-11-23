@@ -68,6 +68,7 @@ input[type="submit"] {
 
 body {
   height: 100%;
+  font-family: sans-serif;
 }
 
 ul {
@@ -89,6 +90,17 @@ ul {
   display: block;
 }
 
+.button {
+  background: #880000;
+  color: white;
+  border: 1px solid black;
+  margin-top: 5px;
+}
+
+.button:hover {
+  background: #680000;
+}
+
 /* Search */
 
 .search-body {
@@ -104,7 +116,8 @@ ul {
 .nav {
   display: block;
   height: 100px;
-  width: auto;
+  width: 1200px;
+  margin: auto;
   background: gray;
   border: 1px solid black;
   margin-bottom: 50px;
@@ -122,6 +135,10 @@ ul {
   display: block;
   float: right;
   margin: 20px;
+}
+
+.logout {
+  margin-bottom: 5px;
 }
 
 /* Restaurant Index */
