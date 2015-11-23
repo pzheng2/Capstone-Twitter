@@ -45,23 +45,20 @@ var Restaurant = window.Restaurant = React.createClass ({
   render: function () {
     var Link = ReactRouter.Link;
     var reviewURL = "/restuarants/" + this.restaurantId + "/review";
-
     return (
-      <div>
+      <div className="body">
         <Link to="/">Back to Restaurants Index</Link>
-        <h4 className="restaurant-name">{this.state.restaurant.name}</h4>
-        <label>
-          <img className="restaurant-image" src={this.state.restaurant.image_url} />
-        </label>
+        <img className="restaurant-image" src={ this.state.restaurant.image_url } />
+        <h4 className="restaurant-name">{ this.state.restaurant.name }</h4>
 
         <label>
           Address:
-          {this.state.restaurant.address}
+          { this.state.restaurant.address }
         </label>
 
         <label>
           Phone #:
-          {this.state.restaurant.phone}
+          { this.state.restaurant.phone }
         </label>
 
         <br/>
@@ -71,7 +68,7 @@ var Restaurant = window.Restaurant = React.createClass ({
             {
               this.state.restaurant.reviews.map(function (review) {
                 return (
-                  <li className="review" key={review.id}><Review review={review} /></li>
+                  <li className="review" key={review.id}><Review review={ review } /></li>
                 );
               })
             }

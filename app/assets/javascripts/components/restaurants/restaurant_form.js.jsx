@@ -77,33 +77,33 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
     }
 
     return (
-      <div>
+      <div className="body">
         <div className="errors">
           {
             errors.map(function (error, i) {
-              return <div key={i}>{error}</div>;
+              return <div key={ i }>{error}</div>;
             })
           }
         </div>
-        <form onSubmit={this._onSubmit}>
+        <form onSubmit={ this._onSubmit }>
           <label>
             Name:
-            <input type="text" onChange={this._updateName} value={ this.state.name } />
+            <input type="text" onChange={ this._updateName } value={ this.state.name } />
           </label>
 
           <label>
             Address:
-            <input type="text" onChange={this._updateAddress} value={ this.state.address } />
+            <input type="text" onChange={ this._updateAddress } value={ this.state.address } />
           </label>
 
           <label>
             Phone #:
-            <input type="text" onChange={this._updatePhone} value={ this.state.phone } />
+            <input type="text" onChange={ this._updatePhone } value={ this.state.phone } />
           </label>
 
           <label>
             Picture:
-            <input type="file" onChange={this._updateFile} />
+            <input type="file" onChange={ this._updateFile } />
           </label>
 
           <button>submit</button>

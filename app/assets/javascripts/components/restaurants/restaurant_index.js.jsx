@@ -37,7 +37,7 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
           this.state.restaurants.map(function (restaurant) {
             return (
               <li onClick={this._onClick} className="restaurant-index-item" id={restaurant.id} key={restaurant.id}>
-                <img className="restaurant-index-items-picture" src={restaurant.image_url} />
+                <img className="restaurant-index-items-image" src={restaurant.image_url} />
                 <label onHover={this._onHover}>
 
                   <div className="restaurant-index-items-body">

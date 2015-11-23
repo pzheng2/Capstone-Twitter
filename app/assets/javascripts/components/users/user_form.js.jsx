@@ -37,7 +37,7 @@ var UserForm = window.UserForm = React.createClass({
 
   render: function() {
     return (
-      <form onSubmit={ this.submit }>
+      <form className="body" onSubmit={ this.submit }>
 
         <h1>Sign Up!</h1>
 

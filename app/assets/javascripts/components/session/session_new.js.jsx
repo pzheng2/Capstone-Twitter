@@ -31,7 +31,7 @@ var SessionForm = window.SessionForm = React.createClass({
 
   render: function () {
     return (
-      <form onSubmit={ this.submit }>
+      <form className="body" onSubmit={ this.submit }>
         { this.state.errors }
         <h1>Log In!</h1>
 

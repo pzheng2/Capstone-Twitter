@@ -33,6 +33,10 @@ This website will allow users to:
 - Decide if you want to change the state attributes to instance variables in the map component
 - Skipped phase 2b
 - Create JBuilder for users
+- Search https://github.com/tduek/react_demo_skeleton/tree/search_and_pagination
+- Tags
+- Add images to other models
+
 
 ## Implementation Timeline
 
