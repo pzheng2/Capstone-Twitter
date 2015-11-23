@@ -40,7 +40,7 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
 
   _updateFile: function (event) {
     var reader = new FileReader();
-    var file = e.currentTarget.files[0];
+    var file = event.currentTarget.files[0];
 
     reader.onload = function () {
       this.setState({ imageUrl: reader.result, imageFile:file });
@@ -55,13 +55,14 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
 
   _onSubmit: function (event) {
     event.preventDefault();
+    var formData = new FormData();
 
-    ApiUtil.createRestaurant({
-        name: this.state.name,
-        address: this.state.address,
-        phone: this.state.phone,
-        image: this.state.imageFile
-    }, this.successCallback, this.errorCallback);
+    formData.append("restaurant[name]", this.state.name);
+    formData.append("restaurant[address]", this.state.address);
+    formData.append("restaurant[phone]", this.state.phone);
+    formData.append("restaurant[image]", this.state.imageFile);
+
+    ApiUtil.createRestaurant(formData, this.successCallback, this.errorCallback);
 
     this.setState({ name: "", address: "", phone: "" });
   },
@@ -102,11 +103,12 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
 
           <label>
             Picture:
-            <input type="file" onChange={this._updateFile} value={ this.state.imageUrl } />
+            <input type="file" onChange={this._updateFile} />
           </label>
 
           <button>submit</button>
         </form>
+        <img className="preview-image" src={ this.state.imageUrl } />
         <Link to="/">Back to Index</Link>
       </div>
     );

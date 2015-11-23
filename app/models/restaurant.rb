@@ -4,8 +4,8 @@ class Restaurant < ActiveRecord::Base
 
   validates :name, :address, :phone, :longitude, :latitude, presence: true
   validates :address, uniqueness: true
-  validates :phone, numericality: true,
-            length: { minimum: 10, maximum: 11 }
+  # validates :phone, numericality: true,
+  #           length: { minimum: 10, maximum: 11 }
 
   has_many :reviews
 
@@ -17,5 +17,7 @@ class Restaurant < ActiveRecord::Base
     bounds["northEast"]["lat"].to_f, bounds["southWest"]["lat"].to_f,
     bounds["northEast"]["lng"].to_f, bounds["southWest"]["lng"].to_f)
   end
+
+  def 
 
 end

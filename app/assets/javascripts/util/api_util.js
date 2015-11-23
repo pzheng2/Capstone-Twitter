@@ -43,10 +43,13 @@ ApiUtil = {
   },
 
   createRestaurant: function (restaurantParams, successCallback, errorCallback) {
+    debugger
     $.ajax ({
       type: 'POST',
       url: 'api/restaurants',
-      data: { restaurant: restaurantParams },
+      processData: false,
+      contentType: false,
+      data: restaurantParams,
       success: function (restaurant) {
         ApiActions.NewRestaurant(restaurant);
         successCallback && successCallback(restaurant);

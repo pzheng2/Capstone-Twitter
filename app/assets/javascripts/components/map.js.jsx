@@ -63,11 +63,6 @@ var Map = window.Map = React.createClass({
       if (!this.includesRestaurant(this.state.previousRestaurants, restaurant)) {
         var latLng = { lat: restaurant.latitude, lng: restaurant.longitude };
 
-        // var contentString = restaurant.name;
-        // var infoWindow = new google.maps.InfoWindow({
-        //   content: contentString
-        // });
-
         var sContent = (
           '<h2><b>' + restaurant.name + '</b></h2>' +
           '<br />' + restaurant.address +
@@ -91,21 +86,6 @@ var Map = window.Map = React.createClass({
         google.maps.event.addListener(marker, 'mouseout', function () {
           infoWindow.close(this.map, this);
         });
-
-        // marker = new google.maps.Marker({
-        //   position: latLng,
-        //   label: (i + 1).toString(),
-        //   map: this.map,
-        //   title: restaurant.name
-        // });
-
-        // marker.addListener('mouseover', function () {
-        //   infoWindow.open(this.map, marker);
-        // });
-        //
-        // marker.addListener('mouseout', function () {
-        //   infoWindow.close(this.map, marker);
-        // });
 
         this.state.prevRestaurantMarkers[restaurant.name] = marker;
         marker.setMap(this.map);
