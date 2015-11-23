@@ -29,7 +29,6 @@ var UserShow = window.UserShow = React.createClass({
     }
 
     var posts = [];
-    debugger
     if (user) {
       user.reviews && user.reviews.forEach(function (post) {
         posts.push(
