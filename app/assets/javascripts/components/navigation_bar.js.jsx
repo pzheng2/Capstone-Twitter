@@ -50,9 +50,15 @@ var NavigationBar = window.NavigationBar = React.createClass ({
 
     return (
       <div className="nav">
-        <header><h1 onClick={this.redirectToRoot}>Zelp</h1></header>
-        { options }
-        <Link to="/users/new">Sign Up!</Link>
+        <header><h1 className="nav-logo" onClick={this.redirectToRoot}>Zelp</h1></header>
+        <ul className="nav-user-options">
+          <li>
+            { options }
+          </li>
+          <li>
+            <Link to="/users/new">Sign Up!</Link>
+          </li>
+        </ul>
       </div>
     );
   }

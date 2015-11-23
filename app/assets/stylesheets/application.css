@@ -81,13 +81,6 @@ ul {
   margin: auto;
 }
 
-.nav {
-  display: block;
-  height: 100px;
-  width: auto;
-  background: gray;
-}
-
 #content {
   background: beige;
 }
@@ -96,18 +89,90 @@ ul {
   display: block;
 }
 
-.restaurant-index-items {
-  font-size: 16px;
+/* Search */
+
+.search-body {
   display: block;
-  padding: 10px;
-  margin: 5px;
+  width: 1200px;
   background: white;
+  margin: auto;
+  border: 1px solid lightgray;
 }
 
-.restaurant-index-items:hover {
+/* Navigation bar */
+
+.nav {
+  display: block;
+  height: 100px;
+  width: auto;
+  background: gray;
+  border: 1px solid black;
+  margin-bottom: 50px;
+}
+
+.nav-logo {
+  display: block;
+  font-size: 30px;
+  float: left;
+  margin: 20px;
+  letter-spacing: 2px;
+}
+
+.nav-user-options {
+  display: block;
+  float: right;
+  margin: 20px;
+}
+
+/* Restaurant Index */
+
+.restaurant-index-items {
+  width: 600px;
+  float: left;
+}
+
+.restaurant-index-item {
+  font-size: 16px;
+  display: block;
+  margin: 10px;
+  background: white;
+  height: 100px;
+  width: 600px;
+  border: 1px solid lightgray;
+}
+
+.restaurant-index-items-picture {
+  width: 150px;
+  height: 100px;
+  float: left;
+}
+
+.restaurant-index-item:hover {
   background: tomato;
   color: white;
 }
+
+.restaurant-index-items-body {
+  float: right;
+  padding: 15px 90px 15px 15px;
+}
+
+.restaurant-index-items-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.restaurant-index-items-address {
+  display: block;
+}
+
+.restaurant-index-items-phone {
+  display: block;
+}
+
+
+
+/* Review */
 
 .review {
   display: block;

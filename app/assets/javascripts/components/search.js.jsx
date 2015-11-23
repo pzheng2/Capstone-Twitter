@@ -27,12 +27,12 @@ var Search = window.Search = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className="search-body">
+        <RestaurantIndex />
         <Map
           handleMarkerClick={this.handleMarkerClick}
           restaurants={this.state.restaurants}
         />
-        <RestaurantIndex />
       </div>
     );
   }

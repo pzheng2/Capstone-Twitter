@@ -31,14 +31,30 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
 
   render: function () {
     var Link = ReactRouter.Link;
-
     return (
-      <ol>
+      <ol className="restaurant-index-items">
         {
           this.state.restaurants.map(function (restaurant) {
             return (
-              <li className="restaurant-index-items" onClick={this._onClick} onHover={this._onHover} id={restaurant.id} key={restaurant.id}>
-                {restaurant.name}
+              <li onClick={this._onClick} className="restaurant-index-item" id={restaurant.id} key={restaurant.id}>
+                <img className="restaurant-index-items-picture" src={restaurant.image_url} />
+                <label onHover={this._onHover}>
+
+                  <div className="restaurant-index-items-body">
+                    <label className="restaurant-index-items-name">
+                      {restaurant.name}
+                    </label>
+
+                    <label className="restaurant-index-items-address">
+                      {restaurant.address}
+                    </label>
+
+                    <label className="restaurant-index-items-phone">
+                      {restaurant.phone}
+                    </label>
+                  </div>
+
+                </label>
               </li>
             );
           }.bind(this))
