@@ -1,41 +1,71 @@
-var Search = window.Search = React.createClass({
-  // contextTypes: {
-  //   router: React.PropTypes.func
-  // },
+var Search = window.Search = React.createClass ({
 
-  getInitialState: function () {
-    return {
-      restaurants: RestaurantStore.all()
-    };
-  },
-
-  _restaurantsChanged: function () {
-    this.setState({ restaurants: RestaurantStore.all() });
-  },
+  mixins: [ReactRouter.History],
 
   componentDidMount: function () {
-    RestaurantStore.addChangeListener(this._restaurantsChanged);
+    SearchResultStore.addChangeHandler(this._onChange);
+
+    var queryParams = this.props.location.query;
+    SearchApiUtil.search(queryParams.query || "", queryParams.page || 1);
   },
 
   componentWillUnmount: function () {
-    RestaurantStore.removeChangeListener(this._restaurantsChanged);
+    SearchResultStore.removeChangeHandler(this._onChange);
   },
 
-  handleMarkerClick: function (restaurant) {
-    this.props.history.pushState(null, "restaurants/" + restaurant.id);
+  componentWillReceiveProps: function (newProps) {
+    SearchApiUtil.search(
+      newProps.location.query.query,
+      newProps.location.query.page
+    );
   },
 
-  render: function () {
+  _onChange: function () {
+    this.setState({ results: SearchResultStore.results() });
+  },
+
+  _onInput: function (e) {
+    e.preventDefault();
+    var query = $(e.currentTarget).val();
+    this.history.pushState(null, "/search", {
+      query: query,
+      page: 1
+    });
+  },
+
+  render: function() {
+    var results = SearchResultStore.results().map(function (result) {
+      if (result._type === "User") {
+        return <UserIndexItem user={ result } />;
+      } else {
+        return <PostIndexItem post={ result } />;
+      }
+    });
+
+    var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
+    var query = this.props.location.query.query;
     return (
-      <div className="search-body">
-        <RestaurantIndex />
-        <Map
-          handleMarkerClick={this.handleMarkerClick}
-          restaurants={this.state.restaurants}
+      <div>
+        <input type="text"
+          value={ query }
+          onChange={ this._onInput }
+          placeholder="search..."
         />
+
+        <p>
+          Displaying { SearchResultStore.results().length }
+          of { SearchResultStore.totalCount() }
+        </p>
+
+        <a href={ "#/search?query=" + query + "&page=" + nextPage }>
+          Next
+        </a>
+
+        <ul className="search-results">
+          { results }
+        </ul>
       </div>
     );
   }
-
 
 });

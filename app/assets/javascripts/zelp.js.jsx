@@ -6,7 +6,7 @@ $(function () {
 
   var routes = (
     <Route path="/" component={ App }>
-      <IndexRoute component={ Search } />
+      <IndexRoute component={ Home } />
       <Route path="login" component={ SessionForm } />
       <Route path="users" component={ UserIndex } />
       <Route path="users/new" component={ UserForm } />

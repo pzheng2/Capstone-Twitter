@@ -36,9 +36,22 @@ var UserForm = window.UserForm = React.createClass({
   },
 
   render: function() {
+    var errors = [];
+    if (this.state.errors) {
+      for (var i = 0; i < this.state.errors.responseJSON.length; i++) {
+        errors.push(this.state.errors.responseJSON[i]);
+      }
+    }
+
     return (
       <form className="body" onSubmit={ this.submit }>
-
+        <div className="errors">
+          {
+            errors.map(function (error) {
+              return <div>{error}</div>;
+            })
+          }
+        </div>
         <h1>Sign Up!</h1>
 
         <label>
