@@ -27,6 +27,8 @@ var Review = window.Review = React.createClass({
           Date:
           {this.props.review.date}
         </label>
+
+        <TagForm review={ this.props.review } />
       </div>
     );
   }

@@ -28,7 +28,7 @@ var ReviewForm = window.ReviewForm = React.createClass ({
   _ensureLoggedIn: function (currentUser) {
     if (!currentUser.username) {
       this.history.pushState(
-        { errors: "Need to be logged in to write review" },
+        { errors: "Need to be logged in to write a review" },
         "/login"
       );
     }
@@ -73,12 +73,8 @@ var ReviewForm = window.ReviewForm = React.createClass ({
     }, this.successCallback, this.errorCallback);
   },
 
-  _onCancel: function (event) {
-    event.preventDefault();
-    this.navigateToShow();
-  },
-
   render: function () {
+    var Link = ReactRouter.Link;
     var errors = [];
     if (this.state.errors) {
       for (var i = 0; i < this.state.errors.responseJSON.length; i++) {
@@ -113,7 +109,7 @@ var ReviewForm = window.ReviewForm = React.createClass ({
 
           <button>Submit</button>
         </form>
-        <button onClick={this._onCancel}>Cancel</button>
+        <Link to={ "/restaurants/" + this.props.params.id }>Cancel</Link>
       </div>
     );
   }

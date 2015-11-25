@@ -72,6 +72,21 @@ ApiUtil = {
         errorCallback && errorCallback(errors);
       }
     });
+  },
+
+  createRestaurantTag: function (restaurantTagParams, successCallback, errorCallback) {
+    $.ajax ({
+      type: 'POST',
+      url: 'api/restaurant_tags',
+      data: { restaurant_tag: restaurantTagParams },
+      success: function (review) {
+        ApiActions.NewRestaurantTag(review);
+        successCallback && successCallback();
+      },
+      error: function (errors) {
+        errorCallback && errorCallback(errors);
+      }
+    });
   }
 
 };

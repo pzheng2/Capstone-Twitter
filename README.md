@@ -35,6 +35,10 @@ This website will allow users to:
 - Create JBuilder for users
 - Tags
 - Add images to other models
+- Maybe redirect users in the restaurants component if they are not logged in when they
+try to leave a restaurant tag or review
+- Do i need new stores for tags/reviews?
+- When user logs out persist to database the tags
 
 
 ## Implementation Timeline

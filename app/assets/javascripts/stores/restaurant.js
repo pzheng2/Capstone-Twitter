@@ -56,6 +56,9 @@
           addReview(payload.review);
           RestaurantStore.emit(CHANGE_EVENT);
           break;
+        case RestaurantTagConstants.NEW_RESTAURANT_TAG:
+          RestaurantStore.emit(CHANGE_EVENT);
+          break;
       }
     })
 

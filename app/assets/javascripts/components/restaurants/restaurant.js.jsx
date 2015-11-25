@@ -10,6 +10,7 @@ var Restaurant = window.Restaurant = React.createClass ({
       name: "loading",
       address: "loading",
       phone: "loading",
+      categories: [],
       reviews: []
     };
     return { restaurant: loadingRestaurant };
@@ -51,14 +52,16 @@ var Restaurant = window.Restaurant = React.createClass ({
         <img className="restaurant-image" src={ this.state.restaurant.image_url } />
         <h4 className="restaurant-name">{ this.state.restaurant.name }</h4>
 
-        <label>
-          Address:
+        <label className="restaurant-address">Address:
           { this.state.restaurant.address }
         </label>
 
-        <label>
-          Phone #:
+        <label className="restaurant-phone">Phone #:
           { this.state.restaurant.phone }
+        </label>
+
+        <label className="restaurant-categories">Categories:
+          { this.state.restaurant.categories.join(", ") }
         </label>
 
         <br/>
@@ -74,10 +77,9 @@ var Restaurant = window.Restaurant = React.createClass ({
             }
             </ol>
         </label>
-        {
-          this.props.children ||
-          <Link to={"/restaurants/" + this.restaurantId + "/review"}>Leave a Review</Link>
-        }
+        { this.props.children }
+        <Link to={"/restaurants/" + this.restaurantId + "/review/new"}>Leave a Review</Link>
+        <Link to={"/restaurants/" + this.restaurantId + "/restaurant_tag/new"}>Tag this Restaurant</Link>
       </div>
     );
   }

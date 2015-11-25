@@ -12,10 +12,25 @@ class Restaurant < ActiveRecord::Base
 
   has_many :reviews
 
+  has_many :restaurant_tags
+
   def self.in_bounds(bounds)
-    Restaurant.where("(? > latitude) AND (latitude > ?) AND (? > longitude) AND (longitude > ?)",
-    bounds["northEast"]["lat"].to_f, bounds["southWest"]["lat"].to_f,
-    bounds["northEast"]["lng"].to_f, bounds["southWest"]["lng"].to_f)
+    Restaurant.where(
+      "(? > latitude) AND (latitude > ?) AND (? > longitude) AND (longitude > ?)",
+      bounds["northEast"]["lat"].to_f, bounds["southWest"]["lat"].to_f,
+      bounds["northEast"]["lng"].to_f, bounds["southWest"]["lng"].to_f
+    )
+  end
+
+  def categories
+    categories = []
+    categories.push("Bar") if bar
+    categories.push("American") if american
+    categories.push("Italian") if italian
+    categories.push("Asian") if asian
+    categories.push("Spanish") if spanish
+
+    categories
   end
 
 end

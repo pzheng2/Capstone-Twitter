@@ -1,9 +1,14 @@
 var RestaurantForm = window.RestaurantForm = React.createClass ({
 
-  mixins: [ReactRouter.History],
+  mixins: [ReactRouter.History, React.addons.LinkedStateMixin],
 
   getInitialState: function () {
     return {
+      bar: false,
+      american: false,
+      italian: false,
+      asian: false,
+      spanish: false,
       name: "",
       address: "",
       phone: "",
@@ -61,15 +66,30 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
     formData.append("restaurant[address]", this.state.address);
     formData.append("restaurant[phone]", this.state.phone);
     formData.append("restaurant[image]", this.state.imageFile);
+    formData.append("restaurant[bar]", this.state.bar);
+    formData.append("restaurant[american]", this.state.american);
+    formData.append("restaurant[italian]", this.state.italian);
+    formData.append("restaurant[asian]", this.state.asian);
+    formData.append("restaurant[spanish]", this.state.spanish);
 
     ApiUtil.createRestaurant(formData, this.successCallback, this.errorCallback);
 
-    this.setState({ name: "", address: "", phone: "" });
+    this.setState({
+      bar: false,
+      american: false,
+      italian: false,
+      asian: false,
+      spanish: false,
+      name: "",
+      address: "",
+      phone: ""
+    });
   },
 
   render: function () {
     var Link = ReactRouter.Link;
     var errors = [];
+    
     if (this.state.errors) {
       for (var i = 0; i < this.state.errors.responseJSON.length; i++) {
         errors.push(this.state.errors.responseJSON[i]);
@@ -86,24 +106,43 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
           }
         </div>
         <form onSubmit={ this._onSubmit }>
-          <label>
-            Name:
-            <input type="text" onChange={ this._updateName } value={ this.state.name } />
+
+          <label>Name:
+            <input type="text" valueLink={ this.linkState("name") } />
           </label>
 
-          <label>
-            Address:
-            <input type="text" onChange={ this._updateAddress } value={ this.state.address } />
+          <label>Address:
+            <input type="text" valueLink={ this.linkState("address") } />
           </label>
 
-          <label>
-            Phone #:
-            <input type="text" onChange={ this._updatePhone } value={ this.state.phone } />
+          <label>Phone #:
+            <input type="text" valueLink={ this.linkState("phone") } />
           </label>
 
-          <label>
-            Picture:
+          <label>Picture:
             <input type="file" onChange={ this._updateFile } />
+          </label>
+
+          <br />
+
+          <label>Bar:
+            <input type="checkbox" checkedLink={ this.linkState("bar") } />
+          </label>
+
+          <label>American:
+            <input type="checkbox" checkedLink={ this.linkState("american") } />
+          </label>
+
+          <label>Italian:
+            <input type="checkbox" checkedLink={ this.linkState("italian") } />
+          </label>
+
+          <label>Asian:
+            <input type="checkbox" checkedLink={ this.linkState("asian") } />
+          </label>
+
+          <label>Spanish:
+            <input type="checkbox" checkedLink={ this.linkState("spanish") } />
           </label>
 
           <button>submit</button>

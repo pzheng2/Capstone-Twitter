@@ -10,9 +10,22 @@ class Review < ActiveRecord::Base
   )
 
   belongs_to :restaurant
+  has_many :tags
 
   def date
     Date.strptime(created_at.to_s)
+  end
+
+  def numUsefulTags
+    tags.where(category: "useful").count
+  end
+
+  def numFunnyTags
+    tags.where(category: "funny").count
+  end
+
+  def numCoolTags
+    tags.where(category: "cool").count
   end
 
 end

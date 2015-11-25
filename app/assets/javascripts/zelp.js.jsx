@@ -13,7 +13,8 @@ $(function () {
       <Route path="users/:id" component={ UserShow } />
       <Route path="restaurants/new" component={ RestaurantForm } />
       <Route path="restaurants/:id" component={ Restaurant }>
-        <Route path="review" component={ ReviewForm } />
+        <Route path="review/new" component={ ReviewForm } />
+        <Route path="restaurant_tag/new" component={ RestaurantTagForm } />
       </Route>
     </Route>
   );

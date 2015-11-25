@@ -1,0 +1,8 @@
+development:
+  s3_bucket: "zelp1-dev"
+
+production:
+  s3_bucket: "zelp1-pro"
+
+s3_access_key_id: "AKIAJHPHWLCDVO3LDQGQ"
+s3_secret_access_key: "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"

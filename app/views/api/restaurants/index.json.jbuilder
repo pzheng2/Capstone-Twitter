@@ -9,6 +9,7 @@ json.array!(@restaurants) do |restaurant|
   json.latitude restaurant.latitude
   json.longitude restaurant.longitude
   json.image_url asset_path(restaurant.image.url)
+  json.categories restaurant.categories
   json.reviews restaurant.reviews do |review|
     json.title review.title
     json.description review.description

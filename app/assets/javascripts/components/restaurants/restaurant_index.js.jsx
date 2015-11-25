@@ -25,10 +25,6 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
       null);
   },
 
-  _onHover: function (event) {
-
-  },
-
   render: function () {
     var Link = ReactRouter.Link;
     return (
@@ -36,21 +32,25 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
         {
           this.state.restaurants.map(function (restaurant) {
             return (
-              <li onClick={this._onClick} className="restaurant-index-item" id={restaurant.id} key={restaurant.id}>
+              <li onClick={ this._onClick } className="restaurant-index-item" id={ restaurant.id } key={ restaurant.id }>
                 <img className="restaurant-index-items-image" src={restaurant.image_url} />
-                <label onHover={this._onHover}>
+                <label onHover={ this._onHover }>
 
                   <div className="restaurant-index-items-body">
                     <label className="restaurant-index-items-name">
-                      {restaurant.name}
+                      { restaurant.name }
                     </label>
 
                     <label className="restaurant-index-items-address">
-                      {restaurant.address}
+                      { restaurant.address }
                     </label>
 
                     <label className="restaurant-index-items-phone">
-                      {restaurant.phone}
+                      { restaurant.phone }
+                    </label>
+
+                    <label className="restaurant-index-items-categories">
+                      { restaurant.categories.join(", ") }
                     </label>
                   </div>
 

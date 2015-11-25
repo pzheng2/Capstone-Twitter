@@ -33,6 +33,13 @@ ApiActions = {
       actionType: ReviewConstants.NEW_REVIEW,
       review: review
     });
+  },
+
+  NewRestaurantTag: function (restaurantTag) {
+    AppDispatcher.dispatch({
+      actionType: RestaurantTagConstants.NEW_RESTAURANT_TAG,
+      restaurantTag: restaurantTag
+    });
   }
 
 };
