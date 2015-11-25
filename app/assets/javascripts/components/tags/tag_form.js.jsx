@@ -21,7 +21,7 @@ var TagForm = window.TagForm = React.createClass ({
 
   componentWillUnmount: function () {
     CurrentUserStore.removeChangeListener(this._userChange);
-    //TagApiUtil.createTag();
+    TagApiUtil.createTag();
   },
 
   _userChange: function () {
@@ -47,36 +47,22 @@ var TagForm = window.TagForm = React.createClass ({
       cool: cool
     });
   },
+  // 
+  // saveTags: function () {
+  //   if (this.state.numUsefulTags !== this.props.numUsefulTags) {
+  //     this.state.numUsefulTags - this.props.numUsefulTags ?
+  //   }
+  // },
 
   _adjustCount: function (event) {
     var category = event.currentTarget.dataset.category;
     var toggle = this.state[category] ? -1 : 1;
-
-    // switch (category) {
-    //   case "useful":
-    //     this.setState({ useful: !this.state.useful, numUsefulTags: this.state.numUsefulTags + toggle });
-    //     break;
-    //
-    //   case "funny":
-    //     this.setState({ funny: !this.state.funny, numFunnyTags: this.state.numFunnyTags + toggle });
-    //     break;
-    //
-    //   case "cool":
-    //     this.setState({ cool: !this.state.cool, numCoolTags: this.state.numCoolTags + toggle });
-    //     break;
-    // }
 
     var numCategory = "num" + category[0].toUpperCase() + category.slice(1) + "Tags";
     var change = {};
     change[category] = !this.state[category];
     change[numCategory] = this.state[numCategory] + toggle;
     this.setState(change);
-
-    // if (this.state[category]) {
-    //   this.setState({ category: false, numCategory: this.state[numCategory]-- });
-    // } else {
-    //   this.setState({ category: true, numCategory: this.state[numCategory]++ });
-    // }
 
   },
 
