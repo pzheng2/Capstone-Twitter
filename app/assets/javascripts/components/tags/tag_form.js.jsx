@@ -3,6 +3,12 @@ var TagForm = window.TagForm = React.createClass ({
   mixins: [ReactRouter.History, React.addons.LinkedStateMixin],
 
   getInitialState: function () {
+    this.initialTags = {
+      useful: { initial: false, id: null },
+      funny:  { initial: false, id: null },
+      cool:   { initial: false, id: null }
+    };
+
     return {
       numUsefulTags: this.props.review.numUsefulTags,
       numFunnyTags: this.props.review.numFunnyTags,
@@ -21,24 +27,28 @@ var TagForm = window.TagForm = React.createClass ({
 
   componentWillUnmount: function () {
     CurrentUserStore.removeChangeListener(this._userChange);
-    TagApiUtil.createTag();
+    this.findChangedTags();
   },
 
   _userChange: function () {
     var useful = false, funny = false, cool = false;
     var currentUser = CurrentUserStore.currentUser();
 
+    // Get tags for current user where review_id = review.id and send it in Jbuilder
     this.props.review.tags.forEach(function (tag) {
       if (tag.user_id === currentUser.id) {
         if (tag.category === "useful") {
           useful = true;
+          this.initialTags.useful = { initial: true, id: tag.id };
         } else if (tag.category === "funny") {
           funny = true;
+          this.initialTags.funny = { initial: true, id: tag.id };
         } else {
           cool = true;
+          this.initialTags.cool = { initial: true, id: tag.id };
         }
       }
-    });
+    }.bind(this));
 
     this.setState({
       currentUser: currentUser,
@@ -47,12 +57,33 @@ var TagForm = window.TagForm = React.createClass ({
       cool: cool
     });
   },
-  // 
-  // saveTags: function () {
-  //   if (this.state.numUsefulTags !== this.props.numUsefulTags) {
-  //     this.state.numUsefulTags - this.props.numUsefulTags ?
-  //   }
-  // },
+
+  findChangedTags: function () {
+    if (this.initialTags.useful.initial !== this.state.useful)
+      this.saveTagChanges("useful");
+
+    if (this.initialTags.funny.initial !== this.state.funny)
+      this.saveTagChanges("funny");
+
+    if (this.initialTags.cool.initial !== this.state.cool)
+      this.saveTagChanges("cool");
+
+  },
+
+  saveTagChanges: function (category) {
+    if (this.initialTags[category].id) {
+      TagApiUtil.deleteTag({
+        id: this.initialTags[category].id
+      });
+    } else {
+      TagApiUtil.createTag({
+        user_id: this.state.currentUser.id,
+        review_id: this.props.review.id,
+        category: category
+      });
+    }
+
+  },
 
   _adjustCount: function (event) {
     var category = event.currentTarget.dataset.category;

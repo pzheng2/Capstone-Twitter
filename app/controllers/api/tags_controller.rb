@@ -19,7 +19,7 @@ class Api::TagsController < ApplicationController
     else
       render json: @tag.errors.full_messages, status: 400
     end
-    
+
   end
 
   private
