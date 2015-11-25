@@ -9,12 +9,30 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def create
+    debugger
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       render json: @restaurant
     else
+      # errors = @restaurant.errors.messages
+      # if @restaurant.errors.messages.keys.include?(:latitude)
+      #   debugger
+      #   errors.delete(:latitude)
+      #   errors.delete(:longitude)
+      #   errors.delete(:address)
+      #   errors[:address] = "is invalid"
+      # end
+      # debugger
+      # full_messages = []
+      # errors.keys.each do |key|
+      #   full_messages.push(key.to_s + " " + errors[key])
+      # end
       render json: @restaurant.errors.full_messages, status: 400
     end
+  end
+
+  def full_messages(hash)
+
   end
 
   def show
@@ -25,7 +43,7 @@ class Api::RestaurantsController < ApplicationController
   def restaurant_params
     params
     .require(:restaurant)
-    .permit(:name, :address, :phone, :image, :bar, :american, :italian, :asian, :spanish)
+    .permit(:name, :address, :phone, :image)
   end
 
 end

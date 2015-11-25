@@ -4,11 +4,6 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
 
   getInitialState: function () {
     return {
-      bar: false,
-      american: false,
-      italian: false,
-      asian: false,
-      spanish: false,
       name: "",
       address: "",
       phone: "",
@@ -65,21 +60,13 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
     formData.append("restaurant[name]", this.state.name);
     formData.append("restaurant[address]", this.state.address);
     formData.append("restaurant[phone]", this.state.phone);
-    formData.append("restaurant[image]", this.state.imageFile);
-    formData.append("restaurant[bar]", this.state.bar);
-    formData.append("restaurant[american]", this.state.american);
-    formData.append("restaurant[italian]", this.state.italian);
-    formData.append("restaurant[asian]", this.state.asian);
-    formData.append("restaurant[spanish]", this.state.spanish);
+    if (this.state.imageFile) {
+      formData.append("restaurant[image]", this.state.imageFile);
+    }
 
     ApiUtil.createRestaurant(formData, this.successCallback, this.errorCallback);
 
     this.setState({
-      bar: false,
-      american: false,
-      italian: false,
-      asian: false,
-      spanish: false,
       name: "",
       address: "",
       phone: ""
@@ -89,7 +76,7 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
   render: function () {
     var Link = ReactRouter.Link;
     var errors = [];
-    
+
     if (this.state.errors) {
       for (var i = 0; i < this.state.errors.responseJSON.length; i++) {
         errors.push(this.state.errors.responseJSON[i]);
@@ -121,28 +108,6 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
 
           <label>Picture:
             <input type="file" onChange={ this._updateFile } />
-          </label>
-
-          <br />
-
-          <label>Bar:
-            <input type="checkbox" checkedLink={ this.linkState("bar") } />
-          </label>
-
-          <label>American:
-            <input type="checkbox" checkedLink={ this.linkState("american") } />
-          </label>
-
-          <label>Italian:
-            <input type="checkbox" checkedLink={ this.linkState("italian") } />
-          </label>
-
-          <label>Asian:
-            <input type="checkbox" checkedLink={ this.linkState("asian") } />
-          </label>
-
-          <label>Spanish:
-            <input type="checkbox" checkedLink={ this.linkState("spanish") } />
           </label>
 
           <button>submit</button>

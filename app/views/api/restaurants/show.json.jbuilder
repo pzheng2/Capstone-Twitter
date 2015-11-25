@@ -4,7 +4,6 @@ json.address @restaurant.address
 json.phone @restaurant.phone
 json.latitude @restaurant.latitude
 json.longitude @restaurant.longitude
-json.categories @restaurant.categories
 json.image_url asset_path(@restaurant.image.url)
 json.reviews @restaurant.reviews do |review|
   json.id review.id

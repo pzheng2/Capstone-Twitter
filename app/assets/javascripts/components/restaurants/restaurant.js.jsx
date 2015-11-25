@@ -60,9 +60,6 @@ var Restaurant = window.Restaurant = React.createClass ({
           { this.state.restaurant.phone }
         </label>
 
-        <label className="restaurant-categories">Categories:
-          { this.state.restaurant.categories.join(", ") }
-        </label>
 
         <br/>
         <label>
@@ -83,4 +80,7 @@ var Restaurant = window.Restaurant = React.createClass ({
       </div>
     );
   }
+        // <label className="restaurant-categories">Categories:
+        //   { this.state.restaurant.categories.join(", ") }
+        // </label>
 });

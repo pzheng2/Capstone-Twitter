@@ -49,9 +49,6 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
                       { restaurant.phone }
                     </label>
 
-                    <label className="restaurant-index-items-categories">
-                      { restaurant.categories.join(", ") }
-                    </label>
                   </div>
 
                 </label>
@@ -64,5 +61,8 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
       </ol>
     );
   }
+                    // <label className="restaurant-index-items-categories">
+                    //   { restaurant.categories.join(", ") }
+                    // </label>
 
 });
