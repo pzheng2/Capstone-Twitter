@@ -25,7 +25,7 @@ var Home = window.Home = React.createClass({
 
   render: function () {
     return (
-      <div className="home-body">
+      <div className="home-body group">
         <RestaurantIndex />
         <Map
           handleMarkerClick={this.handleMarkerClick}

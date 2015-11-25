@@ -31,7 +31,6 @@
           setResults(payload.results);
           SearchResultStore.emit(CHANGE_EVENT);
           break;
-
       }
     }),
   });

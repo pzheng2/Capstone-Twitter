@@ -1,4 +1,11 @@
 class Restaurant < ActiveRecord::Base
+  include PgSearch
+
+  multisearchable :against => [:name, :address]
+  pg_search_scope :category_search, :associated_against => {
+    :restaurant_tags => :category
+  }
+
   geocoded_by :address
   before_validation :geocode, :if => lambda{ |restaurant| restaurant.address_changed? }
 
@@ -22,15 +29,12 @@ class Restaurant < ActiveRecord::Base
     )
   end
 
-  # def categories
-  #   categories = []
-  #   categories.push("Bar") if bar
-  #   categories.push("American") if american
-  #   categories.push("Italian") if italian
-  #   categories.push("Asian") if asian
-  #   categories.push("Spanish") if spanish
-  #
-  #   categories
-  # end
+  def categories
+    tags = restaurant_tags.map do |tag|
+      tag.category
+    end
+
+    tags
+  end
 
 end

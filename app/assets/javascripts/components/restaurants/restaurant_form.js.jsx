@@ -9,7 +9,8 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
       phone: "",
       imageUrl: "",
       imageFile: null,
-      errors: null
+      errors: null,
+      tags: []
     };
   },
 
@@ -20,6 +21,9 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
 
   successCallback: function (restaurant) {
     this.navigateToShow(restaurant.id);
+    this.state.tags.forEach(function (tag) {
+      RestaurantTagApiUtil.createTag({ restaurant_id: restaurant.id, category: tag });
+    }.bind(this));
   },
 
   errorCallback: function (errors) {
@@ -53,6 +57,10 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
     }
   },
 
+  _saveRestaurantTags: function () {
+
+  },
+
   _onSubmit: function (event) {
     event.preventDefault();
     var formData = new FormData();
@@ -71,6 +79,26 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
       address: "",
       phone: ""
     });
+  },
+
+  includes: function (category) {
+    for (var i = 0; i < this.state.tags.length; i++) {
+      if (this.state.tags[i] === category) {
+        return true;
+      }
+    }
+
+    return false;
+  },
+
+  changeTags: function (event) {
+    var category = event.currentTarget.dataset.category;
+
+    if (this.includes(category)) {
+      this.state.tags.splice(this.state.tags.indexOf(category), 1);
+    } else {
+      this.state.tags.push(category);
+    }
   },
 
   render: function () {
@@ -108,6 +136,33 @@ var RestaurantForm = window.RestaurantForm = React.createClass ({
 
           <label>Picture:
             <input type="file" onChange={ this._updateFile } />
+          </label>
+
+          <br/>
+
+          <label>
+            Bar:
+            <input type="checkbox" onChange={this.changeTags} data-category="bar" />
+          </label>
+
+          <label>
+            American:
+            <input type="checkbox" onChange={this.changeTags} data-category="american" />
+          </label>
+
+          <label>
+            Italian:
+            <input type="checkbox" onChange={this.changeTags} data-category="italian"/>
+          </label>
+
+          <label>
+            Asian:
+            <input type="checkbox" onChange={this.changeTags} data-category="asian"/>
+          </label>
+
+          <label>
+            Spanish:
+            <input type="checkbox" onChange={this.changeTags} data-category="spanish"/>
           </label>
 
           <button>submit</button>

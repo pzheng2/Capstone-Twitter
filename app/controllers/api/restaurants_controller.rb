@@ -9,20 +9,17 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def create
-    debugger
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
       render json: @restaurant
     else
       # errors = @restaurant.errors.messages
       # if @restaurant.errors.messages.keys.include?(:latitude)
-      #   debugger
       #   errors.delete(:latitude)
       #   errors.delete(:longitude)
       #   errors.delete(:address)
       #   errors[:address] = "is invalid"
       # end
-      # debugger
       # full_messages = []
       # errors.keys.each do |key|
       #   full_messages.push(key.to_s + " " + errors[key])

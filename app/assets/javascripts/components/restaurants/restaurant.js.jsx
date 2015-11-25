@@ -11,7 +11,7 @@ var Restaurant = window.Restaurant = React.createClass ({
       address: "loading",
       phone: "loading",
       categories: [],
-      reviews: []
+      reviews: [],
     };
     return { restaurant: loadingRestaurant };
   },
@@ -44,8 +44,17 @@ var Restaurant = window.Restaurant = React.createClass ({
   },
 
   render: function () {
+    var tags = [];
     var Link = ReactRouter.Link;
     var reviewURL = "/restuarants/" + this.restaurantId + "/review";
+
+    if (this.state.restuarant) {
+      this.state.restuarant.categories.forEach(function (tag) {
+        tags.push(tag.category);
+
+      }.bind(this));
+    }
+
     return (
       <div className="body">
         <Link to="/">Back to Restaurants Index</Link>
@@ -60,6 +69,9 @@ var Restaurant = window.Restaurant = React.createClass ({
           { this.state.restaurant.phone }
         </label>
 
+        <label className="restaurant-categories">Categories:
+          { this.state.restaurant.categories.join(", ") }
+        </label>
 
         <br/>
         <label>
@@ -80,7 +92,4 @@ var Restaurant = window.Restaurant = React.createClass ({
       </div>
     );
   }
-        // <label className="restaurant-categories">Categories:
-        //   { this.state.restaurant.categories.join(", ") }
-        // </label>
 });

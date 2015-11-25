@@ -11,15 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124230748) do
+ActiveRecord::Schema.define(version: 20151125212121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "restaurant_tags", force: :cascade do |t|
+    t.integer "restaurant_id", null: false
+    t.string  "category"
+  end
+
   create_table "restaurants", force: :cascade do |t|
-    t.string   "name",                               null: false
-    t.text     "address",                            null: false
-    t.string   "phone",                              null: false
+    t.string   "name",               null: false
+    t.text     "address",            null: false
+    t.string   "phone",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "latitude"
@@ -28,11 +41,6 @@ ActiveRecord::Schema.define(version: 20151124230748) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "bar",                default: false
-    t.boolean  "american",           default: false
-    t.boolean  "italian",            default: false
-    t.boolean  "asian",              default: false
-    t.boolean  "spanish",            default: false
   end
 
   create_table "reviews", force: :cascade do |t|

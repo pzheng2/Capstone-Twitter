@@ -114,6 +114,7 @@ ul {
 .home-body {
   display: block;
   width: 1200px;
+  height: inherit;
   background: white;
   margin: auto;
   border: 1px solid lightgray;

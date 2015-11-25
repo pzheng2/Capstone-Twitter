@@ -43,7 +43,6 @@ ApiUtil = {
   },
 
   createRestaurant: function (restaurantParams, successCallback, errorCallback) {
-    debugger
     $.ajax ({
       type: 'POST',
       url: 'api/restaurants',

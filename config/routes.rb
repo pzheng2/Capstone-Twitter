@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   namespace :api, defaults: {format: :json} do
-    resource :search,       only: :index
-    resource :session,      only: [:create, :destroy, :show]
-    resources :users,       only: [:new, :create, :index, :show]
-    resources :reviews,     only: [:create, :destroy]
-    resources :tags,        only: [:create, :destroy]
-    resources :restaurants, only: [:index, :create, :new, :show]
+    resource :session,          only: [:create, :destroy, :show]
+    resources :search,          only: :index
+    resources :users,           only: [:new, :create, :index, :show]
+    resources :reviews,         only: [:create, :destroy]
+    resources :tags,            only: [:create, :destroy]
+    resources :restaurants,     only: [:index, :create, :new, :show]
+    resources :restaurant_tags, only: :create
   end
 
   resources :users,   only: [:new, :create]

@@ -16,6 +16,7 @@ $(function () {
         <Route path="review/new" component={ ReviewForm } />
         <Route path="restaurant_tag/new" component={ RestaurantTagForm } />
       </Route>
+      <Route path="search" component={ Search } />
     </Route>
   );
 

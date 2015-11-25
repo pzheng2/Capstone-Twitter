@@ -3,14 +3,14 @@ var Search = window.Search = React.createClass ({
   mixins: [ReactRouter.History],
 
   componentDidMount: function () {
-    SearchResultStore.addChangeHandler(this._onChange);
+    SearchResultStore.addChangeListener(this._onChange);
 
     var queryParams = this.props.location.query;
     SearchApiUtil.search(queryParams.query || "", queryParams.page || 1);
   },
 
   componentWillUnmount: function () {
-    SearchResultStore.removeChangeHandler(this._onChange);
+    SearchResultStore.removeChangeListener(this._onChange);
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -33,17 +33,14 @@ var Search = window.Search = React.createClass ({
     });
   },
 
-  render: function() {
+  render: function () {
     var results = SearchResultStore.results().map(function (result) {
-      if (result._type === "User") {
-        return <UserIndexItem user={ result } />;
-      } else {
-        return <PostIndexItem post={ result } />;
-      }
+      // return <Restaurant restaurant={ result } />;
     });
 
     var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
     var query = this.props.location.query.query;
+    debugger
     return (
       <div>
         <input type="text"

@@ -26,6 +26,7 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
   },
 
   render: function () {
+    
     var Link = ReactRouter.Link;
     return (
       <ol className="restaurant-index-items">
@@ -49,6 +50,10 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
                       { restaurant.phone }
                     </label>
 
+                    <label className="restaurant-index-items-categories">
+                      { restaurant.categories.join(", ") }
+                    </label>
+
                   </div>
 
                 </label>
@@ -61,8 +66,5 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
       </ol>
     );
   }
-                    // <label className="restaurant-index-items-categories">
-                    //   { restaurant.categories.join(", ") }
-                    // </label>
 
 });

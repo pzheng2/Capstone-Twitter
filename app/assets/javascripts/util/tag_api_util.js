@@ -7,7 +7,7 @@ TagApiUtil = {
       dataType: 'json',
       data: { tag: tag },
       success: function (newTag) {
-        TagApiActions.NewTag(newTag);
+        TagActions.NewTag(newTag);
       }
     });
   },

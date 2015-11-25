@@ -66,7 +66,8 @@ var Map = window.Map = React.createClass({
         var sContent = (
           '<h2><b>' + restaurant.name + '</b></h2>' +
           '<br />' + restaurant.address +
-          '<br />' + restaurant.phone
+          '<br />' + restaurant.phone +
+          '<br />' + restaurant.categories.join(", ")
         );
 
         infoWindow = new google.maps.InfoWindow({ content: sContent });
