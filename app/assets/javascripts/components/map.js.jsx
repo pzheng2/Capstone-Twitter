@@ -17,11 +17,11 @@ var Map = window.Map = React.createClass({
     this.map = new google.maps.Map(map, mapOptions);
 
     var mapStyles = [
-      {
-        stylers: [
-          { saturation: 100 }
-        ]
-      },
+      // {
+      //   stylers: [
+      //     { saturation: 100 }
+      //   ]
+      // },
       {
         featureType: "poi",
         stylers: [

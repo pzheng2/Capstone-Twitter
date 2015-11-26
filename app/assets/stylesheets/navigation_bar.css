@@ -2,14 +2,14 @@
 
 .nav {
   display: block;
-  height: 100px;
+  height: inherit;
   width: 1200px;
   margin: auto;
   background: transparent;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   margin-top: 50px;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
 }
 
 .nav-logo {
@@ -20,12 +20,23 @@
   letter-spacing: 2px;
 }
 
+.nav-logo:hover {
+  cursor: grab;
+}
+
 .nav-user-options {
   display: block;
   float: right;
   margin: 20px;
+  width: auto;
 }
 
-.logout {
+/*.logout {
   margin-bottom: 5px;
+}*/
+
+.nav-user-options li {
+  display: block;
+  float: left;
+  padding: 10px;
 }

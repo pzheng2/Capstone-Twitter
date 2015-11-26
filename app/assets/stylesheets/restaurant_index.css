@@ -9,11 +9,17 @@
   font-size: 16px;
   display: block;
   margin: 10px;
-  background: #CF4858;
+  background-image: linear-gradient(to bottom, #CF4858, #CC1414);
   opacity: 2.5;
   height: 100px;
   width: 600px;
   border: 3px solid black;
+  /*-moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);*/
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  border-radius: 15px;
+  overflow: hidden;
+  float: right;
 }
 
 .restaurant-index-items-image {
@@ -23,7 +29,7 @@
 }
 
 .restaurant-index-item:hover {
-  background: tomato;
+  background: #E51616;
   color: white;
 }
 

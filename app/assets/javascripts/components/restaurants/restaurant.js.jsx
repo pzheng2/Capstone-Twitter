@@ -56,36 +56,42 @@ var Restaurant = window.Restaurant = React.createClass ({
     }
 
     return (
-      <div className="body">
+      <div className="restaurant-show-body body">
         <Link to="/">Back to Restaurants Index</Link>
         <img className="restaurant-image" src={ this.state.restaurant.image_url } />
-        <h4 className="restaurant-name">{ this.state.restaurant.name }</h4>
 
-        <label className="restaurant-address">Address:
-          { this.state.restaurant.address }
-        </label>
+        <ul className="group">
 
-        <label className="restaurant-phone">Phone #:
-          { this.state.restaurant.phone }
-        </label>
+          <h4 className="restaurant-name">{ this.state.restaurant.name }</h4>
 
-        <label className="restaurant-categories">Categories:
-          { this.state.restaurant.categories.join(", ") }
-        </label>
+          <li className="restaurant-address">
+            { "Address: " + this.state.restaurant.address }
+          </li>
 
-        <br/>
-        <label>
-          Reviews:
-            <ol>
-            {
-              this.state.restaurant.reviews.map(function (review) {
-                return (
-                  <li className="review" key={review.id}><Review review={ review } /></li>
-                );
-              })
-            }
-            </ol>
-        </label>
+          <li className="restaurant-phone">
+            { "Phone #: " + this.state.restaurant.phone }
+          </li>
+
+          <li className="restaurant-categories">
+            { "Categories: " + this.state.restaurant.categories.join(", ") }
+          </li>
+
+          <br/>
+          <li>
+            Reviews:
+              <ol>
+              {
+                this.state.restaurant.reviews.map(function (review) {
+                  return (
+                    <li className="review" key={review.id}><Review review={ review } /></li>
+                  );
+                })
+              }
+              </ol>
+          </li>
+
+        </ul>
+
         { this.props.children }
         <Link to={"/restaurants/" + this.restaurantId + "/review/new"}>Leave a Review</Link>
         <Link to={"/restaurants/" + this.restaurantId + "/restaurant_tag/new"}>Tag this Restaurant</Link>

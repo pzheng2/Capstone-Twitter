@@ -29,7 +29,7 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
 
     var Link = ReactRouter.Link;
     return (
-      <ol className="restaurant-index-items">
+      <ol className="restaurant-index-items group">
         {
           this.state.restaurants.map(function (restaurant) {
             return (
@@ -38,7 +38,7 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
           }.bind(this))
         }
 
-        <Link to="/restaurants/new" class="hvr-grow">Create New Restaurant</Link>
+        <Link className="button" to="/restaurants/new" >Create New Restaurant</Link>
       </ol>
     );
   }

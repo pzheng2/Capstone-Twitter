@@ -30,33 +30,34 @@ var NavigationBar = window.NavigationBar = React.createClass ({
 
   render: function () {
     var Link = ReactRouter.Link;
-    var options;
+    var options, message;
 
     if (CurrentUserStore.isLoggedIn()) {
+      message = "Logged in as: " + this.state.currentUser.username;
       options = (
-        <div>
-          Logged in as
-          { " "+this.state.currentUser.username }
-          <button className="button logout" onClick={ this.logout }>Log out</button>
-        </div>
+        <a className="logout" href="#/login" onClick={ this.logout }>Log out</a>
       );
     } else {
+
       options = (
-        <div>
-          <a className="button login" href="#/login">Login</a>
-        </div>
+        <a className="login" href="#/login">Login</a>
       );
     }
 
     return (
-      <div className="nav">
+      <div className="nav group">
         <header><h1 className="nav-logo" onClick={this.redirectToRoot}>Zelp</h1></header>
-        <ul className="nav-user-options">
+        <ul className="nav-user-options group">
+          <li>
+            { message }
+          </li>
+
           <li>
             { options }
           </li>
+
           <li>
-            <Link className="button signup" to="/users/new">Sign Up!</Link>
+            <Link className="signup" to="/users/new">Sign Up!</Link>
           </li>
         </ul>
       </div>
