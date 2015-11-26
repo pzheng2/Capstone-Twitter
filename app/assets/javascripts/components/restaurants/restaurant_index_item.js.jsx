@@ -11,10 +11,10 @@ var RestaurantIndexItem = window.RestaurantIndexItem = React.createClass ({
   render: function () {
     var restaurant = this.props.restaurant;
     return (
-      <div>
+      <div className="hvr-grow">
         <li onClick={ this._onClick } className="restaurant-index-item" id={ restaurant.id } key={ restaurant.id }>
           <img className="restaurant-index-items-image" src={ restaurant.image_url } />
-          <label onHover={ this._onHover }>
+          <label>
 
             <div className="restaurant-index-items-body">
               <label className="restaurant-index-items-name">

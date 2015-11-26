@@ -33,38 +33,39 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
         {
           this.state.restaurants.map(function (restaurant) {
             return (
-              <li onClick={ this._onClick } className="restaurant-index-item" id={ restaurant.id } key={ restaurant.id }>
-                <img className="restaurant-index-items-image" src={restaurant.image_url} />
-                <label onHover={ this._onHover }>
-
-                  <div className="restaurant-index-items-body">
-                    <label className="restaurant-index-items-name">
-                      { restaurant.name }
-                    </label>
-
-                    <label className="restaurant-index-items-address">
-                      { restaurant.address }
-                    </label>
-
-                    <label className="restaurant-index-items-phone">
-                      { restaurant.phone }
-                    </label>
-
-                    <label className="restaurant-index-items-categories">
-                      { restaurant.categories.join(", ") }
-                    </label>
-
-                  </div>
-
-                </label>
-              </li>
+              <RestaurantIndexItem key={ restaurant.id } restaurant={ restaurant } />
             );
           }.bind(this))
         }
 
-        <Link to="/restaurants/new">Create New Restaurant</Link>
+        <Link to="/restaurants/new" class="hvr-grow">Create New Restaurant</Link>
       </ol>
     );
   }
 
 });
+              // <li onClick={ this._onClick } className="restaurant-index-item" id={ restaurant.id } key={ restaurant.id }>
+              //   <img className="restaurant-index-items-image" src={restaurant.image_url} />
+              //   <label onHover={ this._onHover }>
+              //
+              //     <div className="restaurant-index-items-body">
+              //       <label className="restaurant-index-items-name">
+              //         { restaurant.name }
+              //       </label>
+              //
+              //       <label className="restaurant-index-items-address">
+              //         { restaurant.address }
+              //       </label>
+              //
+              //       <label className="restaurant-index-items-phone">
+              //         { restaurant.phone }
+              //       </label>
+              //
+              //       <label className="restaurant-index-items-categories">
+              //         { restaurant.categories.join(", ") }
+              //       </label>
+              //
+              //     </div>
+              //
+              //   </label>
+              // </li>

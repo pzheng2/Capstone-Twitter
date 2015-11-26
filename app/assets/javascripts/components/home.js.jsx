@@ -44,19 +44,13 @@ var Home = window.Home = React.createClass({
           handleMarkerClick={this.handleMarkerClick}
           restaurants={this.state.restaurants}
         />
-        {
-          this.state.tabs.bar &&
-          <Tab tabs={ tabsList } />
-        }
 
       </div>
     );
   }
         // {
         //   this.state.tabs.bar &&
-        //   Object.keys(this.state.tabs).map(function (category) {
-        //     return <Tab category={{ category: category, restaurants: this.state.tabs.category }} />;
-        //   }.bind(this))
+        //   <Tab tabs={ tabsList } />
         // }
 
 });

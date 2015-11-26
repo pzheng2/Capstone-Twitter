@@ -23,7 +23,13 @@ var Tab = React.createClass({
         <ul>
           { tabNames }
         </ul>
-        <article>{ this.props.tabs[this.state.selected].content }</article>
+        <div>
+          {
+            this.props.tabs[this.state.selected].content.map(function (restaurant) {
+              return <RestaurantIndexItem restaurant={ restaurant } />;                
+            })
+          }
+        </div>
       </div>
     );
   },

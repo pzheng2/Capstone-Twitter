@@ -5,7 +5,9 @@ class Api::TabsController < ApplicationController
     @tabsInfo = { bar: [], american: [], italian: [], asian: [], spanish: [], mexican: [] }
     @tabsInfo.keys.each do |category|
       RestaurantTag.where(category: category).each do |tag|
-        @tabsInfo[category].push(tag.restaurant)
+        restaurant = tag.restaurant
+        # restaurant["categories"] = restaurant.categories
+        @tabsInfo[category].push(restaurant)
       end
     end
 
