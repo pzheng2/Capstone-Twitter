@@ -1,0 +1,52 @@
+/* Restaurant Index */
+
+.restaurant-index-items {
+  width: 600px;
+  float: left;
+}
+
+.restaurant-index-item {
+  font-size: 16px;
+  display: block;
+  margin: 10px;
+  background: #CF4858;
+  opacity: 2.5;
+  height: 100px;
+  width: 600px;
+  border: 3px solid black;
+}
+
+.restaurant-index-items-image {
+  width: 150px;
+  height: 100px;
+  float: left;
+}
+
+.restaurant-index-item:hover {
+  background: tomato;
+  color: white;
+}
+
+.restaurant-index-items-body {
+  float: right;
+  padding: 10px 90px 15px 15px;
+}
+
+.restaurant-index-items-name {
+  display: block;
+  padding-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.restaurant-index-items-address {
+  display: block;
+}
+
+.restaurant-index-items-phone {
+  display: block;
+}
+
+.restaurant-index-items-categories {
+  display: block;
+}

@@ -65,7 +65,9 @@ input[type="submit"] {
 body {
   height: 100%;
   font-family: sans-serif;
-  /*background-image: url("http://www.hd-wallpapersdownload.com/upload/bulk-upload/background-image-for-pictures-hd-wallpaper.jpg")*/
+  /*background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3fjEy1SGEUM9PR1GEBWMUaPfMVR-iw3tNCTHjwj-T2TgXRNOOzQ");*/
+  background: #4D505B;
+  background-size: 100%;
 }
 
 ul {
@@ -90,7 +92,7 @@ ul {
 }
 
 #content {
-  background: beige;
+  background: transparent;
 }
 
 .restaurant-name {
@@ -106,130 +108,6 @@ ul {
 
 .button:hover {
   background: #680000;
-}
-
-/* Home */
-
-.home-body {
-  display: block;
-  width: 1200px;
-  height: inherit;
-  background: white;
-  margin: auto;
-  border: 1px solid lightgray;
-}
-
-/* Navigation bar */
-
-.nav {
-  display: block;
-  height: 100px;
-  width: 1200px;
-  margin: auto;
-  background: gray;
-  border: 1px solid black;
-  margin-bottom: 50px;
-}
-
-.nav-logo {
-  display: block;
-  font-size: 30px;
-  float: left;
-  margin: 20px;
-  letter-spacing: 2px;
-}
-
-.nav-user-options {
-  display: block;
-  float: right;
-  margin: 20px;
-}
-
-.logout {
-  margin-bottom: 5px;
-}
-
-/* Restaurant Index */
-
-.restaurant-index-items {
-  width: 600px;
-  float: left;
-}
-
-.restaurant-index-item {
-  font-size: 16px;
-  display: block;
-  margin: 10px;
-  background: white;
-  height: 100px;
-  width: 600px;
-  border: 1px solid lightgray;
-}
-
-.restaurant-index-items-image {
-  width: 150px;
-  height: 100px;
-  float: left;
-}
-
-.restaurant-index-item:hover {
-  background: tomato;
-  color: white;
-}
-
-.restaurant-index-items-body {
-  float: right;
-  padding: 10px 90px 15px 15px;
-}
-
-.restaurant-index-items-name {
-  display: block;
-  padding-bottom: 5px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.restaurant-index-items-address {
-  display: block;
-}
-
-.restaurant-index-items-phone {
-  display: block;
-}
-
-.restaurant-index-items-categories {
-  display: block;
-}
-
-/* Restaurant */
-
-.restaurant-image {
-  width: 150px;
-  height: 100px;
-}
-
-
-/* Review */
-
-.review {
-  display: inline-block;
-  width: 600px;
-  height: auto;
-  padding: 10px;
-  margin: 5px;
-  background: white;
-}
-
-.review-title {
-  display: block;
-  font-weight: bold;
-  font-size: 24px;
-}
-
-.review-description {
-  width: 600px;
-  word-wrap: normal;
-  display: inline-block;
 }
 
 button {
@@ -261,3 +139,9 @@ input {
 .hvr-grow:active {
   transform: scale(1.1);
 }
+/*
+#4D505B
+#CF4858
+#16A79D
+#80628B
+#F4AC42*/
