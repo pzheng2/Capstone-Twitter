@@ -35,12 +35,11 @@ var Search = window.Search = React.createClass ({
 
   render: function () {
     var results = SearchResultStore.results().map(function (result) {
-      // return <Restaurant restaurant={ result } />;
+      return <RestaurantIndexItem restaurant={ result } />;
     });
 
     var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
     var query = this.props.location.query.query;
-    debugger
     return (
       <div>
         <input type="text"

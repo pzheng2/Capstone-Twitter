@@ -26,7 +26,7 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
   },
 
   render: function () {
-    
+
     var Link = ReactRouter.Link;
     return (
       <ol className="restaurant-index-items">

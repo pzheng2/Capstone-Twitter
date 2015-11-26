@@ -2,6 +2,8 @@ class Restaurant < ActiveRecord::Base
   include PgSearch
 
   multisearchable :against => [:name, :address]
+  # ,:if => in_bounds
+
   pg_search_scope :category_search, :associated_against => {
     :restaurant_tags => :category
   }

@@ -2,7 +2,8 @@ var Home = window.Home = React.createClass({
 
   getInitialState: function () {
     return {
-      restaurants: RestaurantStore.all()
+      restaurants: RestaurantStore.all(),
+      tabs: TabStore.all()
     };
   },
 
@@ -10,13 +11,19 @@ var Home = window.Home = React.createClass({
     this.setState({ restaurants: RestaurantStore.all() });
   },
 
-  componentDidMount: function () {
-    RestaurantStore.addChangeListener(this._restaurantsChanged);
+  _tabsChanged: function () {
+    this.setState({ tabs: TabStore.all() });
+  },
 
+  componentDidMount: function () {
+    TabApiUtil.fetchTabs();
+    RestaurantStore.addChangeListener(this._restaurantsChanged);
+    TabStore.addChangeListener(this._tabsChanged);
   },
 
   componentWillUnmount: function () {
     RestaurantStore.removeChangeListener(this._restaurantsChanged);
+    TabStore.removeChangeListener(this._tabsChanged);
   },
 
   handleMarkerClick: function (restaurant) {
@@ -24,6 +31,12 @@ var Home = window.Home = React.createClass({
   },
 
   render: function () {
+    var tabsList = [];
+
+    this.state.tabs.bar && Object.keys(this.state.tabs).forEach(function (category) {
+      tabsList.push({ name: category, content: this.state.tabs[category] });
+    }.bind(this));
+
     return (
       <div className="home-body group">
         <RestaurantIndex />
@@ -31,9 +44,19 @@ var Home = window.Home = React.createClass({
           handleMarkerClick={this.handleMarkerClick}
           restaurants={this.state.restaurants}
         />
+        {
+          this.state.tabs.bar &&
+          <Tab tabs={ tabsList } />
+        }
+
       </div>
     );
   }
-
+        // {
+        //   this.state.tabs.bar &&
+        //   Object.keys(this.state.tabs).map(function (category) {
+        //     return <Tab category={{ category: category, restaurants: this.state.tabs.category }} />;
+        //   }.bind(this))
+        // }
 
 });
