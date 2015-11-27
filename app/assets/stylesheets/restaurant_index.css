@@ -43,6 +43,14 @@
   float: right;
 }
 
+.restaurant-index-items-container {
+  width: 400px;
+  float: right;
+}
+
+.restaurant-index-items-container label {
+  float: left;
+}
 
 .restaurant-index-items-image {
   width: 150px;

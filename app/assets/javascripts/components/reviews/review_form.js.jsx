@@ -7,7 +7,7 @@ var ReviewForm = window.ReviewForm = React.createClass ({
       author: CurrentUserStore.currentUser(),
       title: "",
       description: "",
-      rating: 5,
+      rating: "",
       errors: null
     };
   },
@@ -84,7 +84,7 @@ var ReviewForm = window.ReviewForm = React.createClass ({
     }
 
     return (
-      <div>
+      <div className="review-form">
         <div className="errors">
           {
             errors.map(function (error) {
@@ -93,26 +93,14 @@ var ReviewForm = window.ReviewForm = React.createClass ({
           }
         </div>
         <form onSubmit={this._onSubmit}>
-          <ul>
-            <label>
-              Title:
-              <input type="text" onChange={this._updateTitle} value={this.state.title} />
-            </label>
-
-            <label>
-              Description:
-              <input type="text" onChange={this._updateDescription} value={this.state.description} />
-            </label>
-
-            <label>
-              Rating:
-              <input type="text" onChange={this._updateRating} value={this.state.rating} />
-            </label>
-
-            <button>Submit</button>
+          <ul className="review-form-components group">
+            <li><input className="input" type="text" onChange={this._updateTitle} value={this.state.title} placeholder="Title" /></li>
+            <li><textarea className="input" onChange={this._updateDescription} value={this.state.description} placeholder="Description"/></li>
+            <li><input className="input" type="text" onChange={this._updateRating} value={this.state.rating} placeholder="Rating (1-10)" /></li>
+            <li><button>Submit</button></li>
+            <li><Link to={ "/restaurants/" + this.props.params.id }>Cancel</Link></li>
           </ul>
         </form>
-        <Link to={ "/restaurants/" + this.props.params.id }>Cancel</Link>
       </div>
     );
   }

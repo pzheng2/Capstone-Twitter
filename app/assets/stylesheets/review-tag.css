@@ -1,11 +1,22 @@
 .review-tags {
   display: block;
+  padding-top: 20px;
 }
 
 .review-tags li {
   display: block;
   /*float: left;
   width: 190px;*/
+}
+
+.review-tags input {
+  width: 50px;
+  float: left;
+}
+
+.review-tags div {
+  width: 100px;
+  float: left;
 }
 
 .num_tags {
