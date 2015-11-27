@@ -1,0 +1,105 @@
+.login-body {
+	display: block;
+	margin: auto;
+	width: 600px;
+	background: transparent;
+	/*border-top: 2px solid black;
+	border-bottom: 2px solid black;*/
+	padding: 20px 0 20px 0;
+	margin-top: 100px;
+}
+
+.login-body li {
+	display: block;
+	width: auto;
+	margin: 5px;
+}
+
+li input, li button {
+	display: block;
+	margin: auto;
+}
+
+li input {
+	background: #eee;
+	text-align: center;
+}
+
+li h1 {
+	text-align: center;
+}
+
+.input-animation {
+	padding: 5px;
+	border-right: solid 1.5px black;
+	border-left: solid 1.5px black;
+  border-top: solid 1.5px #eee;
+	border-bottom: solid 1.5px #eee;
+  transition: box-shadow 0.5s, border 0.5s;
+}
+.input-animation:focus,
+.input-animation.focus {
+  border-top: solid 1.5px black;
+	border-bottom: solid 1.5px black;
+	border-left: solid 1.5px #eee;
+	border-right: solid 1.5px #eee;
+}
+
+/* Shutter In Horizontal */
+.login-button {
+	display: block;
+  vertical-align: middle;
+	font-size: 24px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  background: transparent;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.login-button:before {
+	content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #E51616;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.login-button:hover, .login-button:focus, .login-button:active {
+  color: white;
+}
+.login-button:hover:before, .login-button:focus:before, .hvr-shutter-in-horizontal:active:before {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+/*
+.login-button {
+	font-size: 26px;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	transition: border .5s;
+}*/
+
+/*.login-button:hover {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}*/

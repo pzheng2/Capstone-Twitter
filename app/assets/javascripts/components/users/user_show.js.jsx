@@ -24,7 +24,7 @@ var UserShow = window.UserShow = React.createClass({
     var user = this.state.user;
     if (!user) {
       return (
-        <div>DONT HAVE A USER TO RENDER</div>
+        <div className="body">DONT HAVE A USER TO RENDER</div>
       );
     }
 
@@ -38,7 +38,7 @@ var UserShow = window.UserShow = React.createClass({
     }
 
     return (
-      <div>
+      <div className="body">
         <h1 className="title">UserShow: { user.username }</h1>
 
         <h3>Users Reviews:</h3>

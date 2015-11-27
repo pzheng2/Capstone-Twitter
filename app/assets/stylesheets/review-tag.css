@@ -1,0 +1,13 @@
+.review-tags {
+  display: block;
+}
+
+.review-tags li {
+  display: block;
+  /*float: left;
+  width: 190px;*/
+}
+
+.num_tags {
+  display: block;
+}

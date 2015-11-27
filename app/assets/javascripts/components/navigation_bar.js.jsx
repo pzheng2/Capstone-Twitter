@@ -33,14 +33,27 @@ var NavigationBar = window.NavigationBar = React.createClass ({
     var options, message;
 
     if (CurrentUserStore.isLoggedIn()) {
-      message = "Logged in as: " + this.state.currentUser.username;
+      message = (
+        <li className="message">
+          { this.state.currentUser.username }
+        </li>
+      );
       options = (
-        <a className="logout" href="#/login" onClick={ this.logout }>Log out</a>
+        <li className="options">
+          <a className="logout" href="#/login" onClick={ this.logout }>Log out</a>
+        </li>
       );
     } else {
-
       options = (
-        <a className="login" href="#/login">Login</a>
+        <li className="options">
+          <a className="login" href="#/login">Log In</a>
+        </li>
+      );
+
+      signup = (
+        <li>
+          <Link className="signup" to="/users/new">Sign Up!</Link>
+        </li>
       );
     }
 
@@ -48,17 +61,13 @@ var NavigationBar = window.NavigationBar = React.createClass ({
       <div className="nav group">
         <header><h1 className="nav-logo" onClick={this.redirectToRoot}>Zelp</h1></header>
         <ul className="nav-user-options group">
-          <li>
-            { message }
-          </li>
 
-          <li>
-            { options }
-          </li>
+          { message }
 
-          <li>
-            <Link className="signup" to="/users/new">Sign Up!</Link>
-          </li>
+          { options }
+
+          { signup }
+
         </ul>
       </div>
     );

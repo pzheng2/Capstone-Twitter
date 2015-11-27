@@ -68,7 +68,7 @@ body {
   /*background: #4D505B;*/
   /*background: white;*/
   background-size: 100%;
-  background: #eee;
+  background: white;
   /*background-image: url("http://static1.squarespace.com/static/51e0ad2ee4b0eadeb542cbe5/51edadb6e4b0cfede2169240/51edadbbe4b0a04095923777/1374531005699/dinner_background_widescreen_16X9.jpg");*/
   /*background-size: auto 100%;*/
 }
@@ -81,10 +81,8 @@ ul {
   display: block;
   width: 1200px;
   margin: auto;
-  background: lightgray;
+  background: white;
 }
-
-
 
 #content {
   background: transparent;
@@ -154,10 +152,3 @@ input {
   width: inherit;
   background: white;
 }
-
-/*
-#4D505B
-#CF4858
-#16A79D
-#80628B
-#F4AC42*/

@@ -8,3 +8,30 @@
 .restaurant-show-body {
   padding: 20px;
 }
+
+.restaurant-name {
+  font-size: 36px;
+  margin: 5px;
+}
+
+.restaurant-info {
+  padding-top: 10px;
+  border-top: 1px solid gray;
+}
+
+.review-section {
+  border-top: 1px solid gray;
+}
+
+.reviews > li{
+  border-top: 1px solid gray;
+}
+
+.reviews > li:first-child {
+  border-top: 0px;
+}
+
+.write-review {
+  background-image: linear-gradient(to bottom, #CF4858, #CC1414);
+  border: 1px solid black;
+}

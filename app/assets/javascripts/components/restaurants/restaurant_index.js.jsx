@@ -38,7 +38,7 @@ var RestaurantIndex = window.RestaurantIndex = React.createClass({
           }.bind(this))
         }
 
-        <Link className="button" to="/restaurants/new" >Create New Restaurant</Link>
+        <Link className="create-restaurant" to="/restaurants/new" >Create New Restaurant</Link>
       </ol>
     );
   }

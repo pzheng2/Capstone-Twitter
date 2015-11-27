@@ -3,13 +3,14 @@
 .nav {
   display: block;
   height: inherit;
-  width: 1200px;
+  width: 1400px;
   margin: auto;
   background: transparent;
   margin-bottom: 30px;
   margin-top: 50px;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 }
 
 .nav-logo {
@@ -18,10 +19,15 @@
   float: left;
   margin: 20px;
   letter-spacing: 2px;
+  color: gray;
+  /*width: 150px;
+  height: 80px;
+  background-image: url("zelp-logo.jpg");
+  background-size: cover;*/
 }
 
 .nav-logo:hover {
-  cursor: grab;
+  color: black;
 }
 
 .nav-user-options {
@@ -39,4 +45,19 @@
   display: block;
   float: left;
   padding: 10px;
+  color: gray;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.nav-user-options li:hover {
+  color: black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.message {
+  color: black;
 }

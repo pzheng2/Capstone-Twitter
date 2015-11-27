@@ -1,12 +1,13 @@
 /* Review */
 
-.review {
+.review-body {
   display: inline-block;
   width: 600px;
   height: auto;
-  padding: 10px;
+  padding-top: 10px;
   margin: 5px;
   background: white;
+
 }
 
 .review-title {
@@ -19,4 +20,26 @@
   width: 600px;
   word-wrap: normal;
   display: inline-block;
+}
+
+.review-title {
+  font-weight: bold;
+  font-size: 18px;
+  float: left;
+}
+
+.review-date {
+  display: block;
+  float: right;
+  font-size: 12px;
+  margin-right: 50px;
+}
+
+.review-description {
+  padding: 10px;
+}
+
+.review-rating {
+  float: right;
+  padding-right: 50px;
 }

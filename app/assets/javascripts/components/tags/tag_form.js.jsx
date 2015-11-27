@@ -35,7 +35,7 @@ var TagForm = window.TagForm = React.createClass ({
     var currentUser = CurrentUserStore.currentUser();
 
     // Get tags for current user where review_id = review.id and send it in Jbuilder
-    this.props.review.tags.forEach(function (tag) {
+    this.props.review.tags && this.props.review.tags.forEach(function (tag) {
       if (tag.user_id === currentUser.id) {
         if (tag.category === "useful") {
           useful = true;
@@ -99,11 +99,20 @@ var TagForm = window.TagForm = React.createClass ({
 
   render: function () {
     return (
-      <div>
-        <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.useful } data-category="useful">Useful</input>{ this.state.numUsefulTags || ""}
-        <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.funny } data-category="funny">Funny</input>{ this.state.numFunnyTags || ""}
-        <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.cool } data-category="cool">Cool</input>{ this.state.numCoolTags || ""}
-      </div>
+      <ul className="review-tags group">
+        <li>
+          <div className="num_tags">Useful{ this.state.numUsefulTags || ""}</div>
+          <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.useful } data-category="useful"></input>
+        </li>
+        <li>
+          <div className="num_tags">Funny{ this.state.numFunnyTags || ""}</div>
+          <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.funny } data-category="funny"></input>
+        </li>
+        <li>
+          <div className="num_tags">Cool{ this.state.numCoolTags || ""}</div>
+          <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.cool } data-category="cool"></input>
+        </li>
+      </ul>
     );
   }
 });

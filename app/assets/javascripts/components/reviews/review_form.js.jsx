@@ -37,6 +37,7 @@ var ReviewForm = window.ReviewForm = React.createClass ({
   },
 
   navigateToShow: function () {
+    debugger
     var restaurantURL = "/restaurants/" + this.props.params.id;
     this.props.history.pushState(null, restaurantURL);
   },
@@ -92,22 +93,24 @@ var ReviewForm = window.ReviewForm = React.createClass ({
           }
         </div>
         <form onSubmit={this._onSubmit}>
-          <label>
-            Title:
-            <input type="text" onChange={this._updateTitle} value={this.state.title} />
-          </label>
+          <ul>
+            <label>
+              Title:
+              <input type="text" onChange={this._updateTitle} value={this.state.title} />
+            </label>
 
-          <label>
-            Description:
-            <input type="text" onChange={this._updateDescription} value={this.state.description} />
-          </label>
+            <label>
+              Description:
+              <input type="text" onChange={this._updateDescription} value={this.state.description} />
+            </label>
 
-          <label>
-            Rating:
-            <input type="text" onChange={this._updateRating} value={this.state.rating} />
-          </label>
+            <label>
+              Rating:
+              <input type="text" onChange={this._updateRating} value={this.state.rating} />
+            </label>
 
-          <button>Submit</button>
+            <button>Submit</button>
+          </ul>
         </form>
         <Link to={ "/restaurants/" + this.props.params.id }>Cancel</Link>
       </div>

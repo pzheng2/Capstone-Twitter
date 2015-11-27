@@ -59,10 +59,9 @@ var Restaurant = window.Restaurant = React.createClass ({
       <div className="restaurant-show-body body">
         <Link to="/">Back to Restaurants Index</Link>
         <img className="restaurant-image" src={ this.state.restaurant.image_url } />
+        <h4 className="restaurant-name">{ this.state.restaurant.name }</h4>
 
-        <ul className="group">
-
-          <h4 className="restaurant-name">{ this.state.restaurant.name }</h4>
+        <ul className="restaurant-info group">
 
           <li className="restaurant-address">
             { "Address: " + this.state.restaurant.address }
@@ -77,25 +76,25 @@ var Restaurant = window.Restaurant = React.createClass ({
           </li>
 
           <br/>
-          <li>
-            Reviews:
-              <ol>
-              {
-                this.state.restaurant.reviews.map(function (review) {
-                  return (
-                    <li className="review" key={review.id}><Review review={ review } /></li>
-                  );
-                })
-              }
-              </ol>
-          </li>
-
         </ul>
+        <div className="review-section">
+          <ul className="reviews group">
+            {
+              this.state.restaurant.reviews.map(function (review) {
+                return (
+                  <li key={review.id}><Review review={ review } /></li>
+                );
+              })
+            }
+          </ul>
+        </div>
 
         { this.props.children }
-        <Link to={"/restaurants/" + this.restaurantId + "/review/new"}>Leave a Review</Link>
-        <Link to={"/restaurants/" + this.restaurantId + "/restaurant_tag/new"}>Tag this Restaurant</Link>
+        <ul className="restaurant-info group">
+          <Link className="write-review" to={"/restaurants/" + this.restaurantId + "/review/new"}>Write a Review</Link>
+        </ul>
       </div>
     );
   }
 });
+          // <Link className="tag-restaurant" to={"/restaurants/" + this.restaurantId + "/restaurant_tag/new"}>Tag this Restaurant</Link>

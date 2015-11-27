@@ -44,33 +44,61 @@ var UserForm = window.UserForm = React.createClass({
     }
 
     return (
-      <form className="body" onSubmit={ this.submit }>
-        <div className="errors">
-          {
-            errors.map(function (error) {
-              return <div>{error}</div>;
-            })
-          }
-        </div>
-        <h1>Sign Up!</h1>
+      <form className="login-body group" onSubmit={ this.submit }>
+        <ul>
+          <li>
+            <div className="errors">
+              {
+                errors.map(function (error) {
+                  return <div>{error}</div>;
+                })
+              }
+            </div>
+          </li>
 
-        <label>
-          Username:
-          <input type="text"
-            name="username"
-            valueLink={ this.linkState("username") } />
-        </label>
+          <li>
+            <input className="input-animation" type="text" name="username" placeholder="Username" valueLink={ this.linkState("username") } />
+          </li>
 
-        <label>
-          Password:
-          <input type="password"
-            name="password"
-            valueLink={ this.linkState("password") } />
-        </label>
+          <li>
+            <input className="input-animation" type="password" name="password" placeholder="Password" valueLink={ this.linkState("password") } />
+          </li>
 
-        <button>Join!</button>
+          <li><button className="login-button">Sign Up</button></li>
+        </ul>
       </form>
     );
   },
 
 });
+      // <form className="login-body group" onSubmit={ this.submit }>
+      //   <ul>
+      //     <li>
+      //       <div className="errors">
+      //         {
+      //           errors.map(function (error) {
+      //             return <div>{error}</div>;
+      //           })
+      //         }
+      //       </div>
+      //     </li>
+      //
+      //     <li>
+      //       <input className="input animation" type="text"
+      //         name="username"
+      //         valueLink={ this.linkState("username") }
+      //         placeholder="Username" />
+      //     </li>
+      //
+      //     <li>
+      //       <input type="password"
+      //         name="password"
+      //         valueLink={ this.linkState("password") }
+      //         placeholder="Password" />
+      //     </li>
+      //
+      //     <li>
+      //       <button>Join!</button>
+      //     </li>
+      //   </ul>
+      // </form>

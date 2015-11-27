@@ -31,23 +31,23 @@ var SessionForm = window.SessionForm = React.createClass({
 
   render: function () {
     return (
-      <form className="body" onSubmit={ this.submit }>
-        { this.state.errors }
-        <h1>Log In!</h1>
+      <form className="login-body group" onSubmit={ this.submit }>
+        <ul>
+          <li>{ this.state.errors }</li>
 
-        <label>
-          Username:
-          <input type="text" name="username" />
-        </label>
+          <li>
+            <input className="input-animation" type="text" name="username" placeholder="Username" />
+          </li>
 
-        <label>
-          Password:
-          <input type="password" name="password" />
-        </label>
+          <li>
+            <input className="input-animation" type="password" name="password" placeholder="Password" />
+          </li>
 
-        <button>Log In!</button>
+          <li><button className="login-button">Log In!</button></li>
+        </ul>
       </form>
     );
   },
+          // <li><h1>Log In!</h1></li>
 
 });
