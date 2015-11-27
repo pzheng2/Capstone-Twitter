@@ -49,6 +49,8 @@
 }
 
 .restaurant-index-items-container label {
+  display: block;
+  width: 300px;
   float: left;
 }
 

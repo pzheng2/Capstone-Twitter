@@ -17,7 +17,7 @@ var RestaurantIndexItem = window.RestaurantIndexItem = React.createClass ({
           <label>
 
             <div className="restaurant-index-items-container group">
-              <div className="restaurant-index-items-body">
+              <div className="restaurant-index-items-body group">
                 <label className="restaurant-index-items-name">
                   { restaurant.name }
                 </label>
