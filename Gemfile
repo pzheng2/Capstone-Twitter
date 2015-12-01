@@ -17,9 +17,10 @@ gem 'phonelib'
 gem 'paperclip'
 gem 'aws-sdk', '~> 1.6'
 gem 'figaro'
-
 gem 'pg_search'
 gem 'kaminari'
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
 
 group :development, :test do
   gem 'better_errors'

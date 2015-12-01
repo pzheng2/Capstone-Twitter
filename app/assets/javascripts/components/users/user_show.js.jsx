@@ -17,6 +17,7 @@ var UserShow = window.UserShow = React.createClass({
   },
 
   componentWillUnmount: function() {
+    debugger
     UserStore.removeChangeListener(this._onChange);
   },
 
@@ -30,9 +31,9 @@ var UserShow = window.UserShow = React.createClass({
 
     var posts = [];
     if (user) {
-      user.reviews && user.reviews.forEach(function (post) {
+      user.reviews && user.reviews.forEach(function (review) {
         posts.push(
-          <li>{ post.title }</li>
+          <li key={review.id}><Review review={ review } /></li>
         );
       });
     }

@@ -13,13 +13,14 @@ This website will allow users to:
 - [x] Log in / Log out
 - [x] Restaurants
 - [x] Search for restaurants
-- [ ] Navigation bar
+- [x] Navigation bar
 - [x] Restaurant reviews
-- [ ] Restaurant tags
+- [x] Restaurant tags
+- [x] Review tags
 - [x] Google maps for restaurant locations
 - [ ] Search
 - [ ] User Profile
-- [ ] Style the website
+- [x] Style the website
 
 ## Design Docs
 * [View Wireframes][view]
@@ -58,8 +59,8 @@ comments, tags and map.
 ### Phase 2a: Flux Architecture and Restaurant CRUD (2 days)
 
 - Set up Flux architecture
-- Create restaurant store, App Dispatcher, constants, utils and routes.
 - Create actions for creating a new restaurant and fetching all restaurants
+- Create restaurant store, App Dispatcher, constants, utils and routes.
 - Create restaurant index, restaurant item and restaurant form components.
 - Use ruby geocoder to obtain the latitude and longitude of restaurants.
 - Create map component using Google maps api.
