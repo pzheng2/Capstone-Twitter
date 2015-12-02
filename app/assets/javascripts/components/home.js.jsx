@@ -41,16 +41,12 @@ var Home = window.Home = React.createClass({
       <div className="home-body group">
         <RestaurantIndex />
         <Map
-          handleMarkerClick={this.handleMarkerClick}
-          restaurants={this.state.restaurants}
+          handleMarkerClick={ this.handleMarkerClick }
+          restaurants={ this.state.restaurants }
         />
 
       </div>
     );
   }
-        // {
-        //   this.state.tabs.bar &&
-        //   <Tab tabs={ tabsList } />
-        // }
 
 });

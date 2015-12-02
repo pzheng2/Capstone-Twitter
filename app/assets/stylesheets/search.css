@@ -1,0 +1,19 @@
+.search-bar {
+  background: #eee;
+  text-align: center;
+  width: 900px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  border: 1px solid white;
+  font-size: 30px;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.pages-info {
+  margin-top: 10px;
+}

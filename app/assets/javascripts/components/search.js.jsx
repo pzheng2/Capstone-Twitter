@@ -34,6 +34,7 @@ var Search = window.Search = React.createClass ({
   },
 
   render: function () {
+    debugger
     var results = SearchResultStore.results().map(function (result, index) {
       return (
         <RestaurantIndexItem key={ index } restaurant={ result } />
@@ -44,13 +45,13 @@ var Search = window.Search = React.createClass ({
     var query = this.props.location.query.query;
     return (
       <div className="body">
-        <input type="text"
+        <input className="search-bar" type="text"
           value={ query }
           onChange={ this._onInput }
           placeholder="search..."
         />
 
-        <p>
+        <p className="pages-info">
           { "Displaying " + SearchResultStore.results().length + " of " + SearchResultStore.totalCount()}
         </p>
 

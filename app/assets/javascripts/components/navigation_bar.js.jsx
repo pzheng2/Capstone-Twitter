@@ -35,7 +35,9 @@ var NavigationBar = window.NavigationBar = React.createClass ({
     if (CurrentUserStore.isLoggedIn()) {
       message = (
         <li className="message">
-          { this.state.currentUser.username }
+          <a className="user" href={ "#/users/" + this.state.currentUser.id }>
+            { this.state.currentUser.username }
+          </a>
         </li>
       );
       options = (
@@ -62,7 +64,12 @@ var NavigationBar = window.NavigationBar = React.createClass ({
         <header><h1 className="nav-logo" onClick={this.redirectToRoot}>Zelp</h1></header>
         <ul className="nav-user-options group">
 
+
           { message }
+
+          <li className="options">
+            <a className="search" href="#/search">Search</a>
+          </li>
 
           { options }
 
