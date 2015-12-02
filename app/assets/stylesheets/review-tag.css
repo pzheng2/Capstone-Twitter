@@ -24,8 +24,17 @@
 }
 
 .review-tags-button {
+  display: block;
   background: #eee;
   text-align: center;
   width: 100px;
   border: 1px solid black;
+}
+
+.review-tags-button:active {
+  background: pink;
+}
+
+.pressed {
+  background: pink;
 }

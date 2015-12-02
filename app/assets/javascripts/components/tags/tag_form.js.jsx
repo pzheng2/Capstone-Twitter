@@ -93,25 +93,39 @@ var TagForm = window.TagForm = React.createClass ({
     var change = {};
     change[category] = !this.state[category];
     change[numCategory] = this.state[numCategory] + toggle;
-    this.setState(change);
 
+    if (toggle == -1) {
+      event.currentTarget.className += " pressed";
+    } else {
+      event.currentTarget.className = event.currentTarget.className.replace(" pressed", "");
+    }
+
+    this.setState(change);
   },
 
   render: function () {
+    var usefulClass = "review-tags-button", funnyClass = "review-tags-button", coolClass = "review-tags-button";
+    if (this.state.useful)
+      usefulClass += " pressed";
+    if (this.state.funny)
+      funnyClass += " pressed";
+    if (this.state.cool)
+      coolClass += " pressed";
+
     return (
       <ul className="review-tags group">
         <li>
-          <button className="review-tags-button" onClick={ this._adjustCount } data-category="useful">
+          <button className={ usefulClass } onClick={ this._adjustCount } data-category="useful" data-clicked={ this.state.useful }>
             { "Useful " + (this.state.numUsefulTags || "") }
           </button>
         </li>
         <li>
-          <button className="review-tags-button" onClick={ this._adjustCount } data-category="funny">
+          <button className={ funnyClass } onClick={ this._adjustCount } data-category="funny" data-clicked={ this.state.funny }>
             { "Funny " + (this.state.numFunnyTags || "") }
           </button>
         </li>
         <li>
-          <button className="review-tags-button" onClick={ this._adjustCount } data-category="cool">
+          <button className={ coolClass } onClick={ this._adjustCount } data-category="cool" data-clicked={ this.state.cool }>
             { "Cool " + (this.state.numCoolTags || "") }
           </button>
         </li>
