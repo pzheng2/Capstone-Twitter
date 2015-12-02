@@ -37,7 +37,6 @@ var ReviewForm = window.ReviewForm = React.createClass ({
   },
 
   navigateToShow: function () {
-    debugger
     var restaurantURL = "/restaurants/" + this.props.params.id;
     this.props.history.pushState(null, restaurantURL);
   },

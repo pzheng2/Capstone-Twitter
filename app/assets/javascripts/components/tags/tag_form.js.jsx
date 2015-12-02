@@ -101,18 +101,33 @@ var TagForm = window.TagForm = React.createClass ({
     return (
       <ul className="review-tags group">
         <li>
-          <div className="num_tags">Useful{ this.state.numUsefulTags || ""}</div>
-          <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.useful } data-category="useful"></input>
+          <button className="review-tags-button" onClick={ this._adjustCount } data-category="useful">
+            { "Useful " + (this.state.numUsefulTags || "") }
+          </button>
         </li>
         <li>
-          <div className="num_tags">Funny{ this.state.numFunnyTags || ""}</div>
-          <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.funny } data-category="funny"></input>
+          <button className="review-tags-button" onClick={ this._adjustCount } data-category="funny">
+            { "Funny " + (this.state.numFunnyTags || "") }
+          </button>
         </li>
         <li>
-          <div className="num_tags">Cool{ this.state.numCoolTags || ""}</div>
-          <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.cool } data-category="cool"></input>
+          <button className="review-tags-button" onClick={ this._adjustCount } data-category="cool">
+            { "Cool " + (this.state.numCoolTags || "") }
+          </button>
         </li>
       </ul>
     );
   }
 });
+        // <li>
+        //   <div className="num_tags">Useful{ this.state.numUsefulTags || "" }</div>
+        //   <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.useful } data-category="useful"></input>
+        // </li>
+        // <li>
+        //   <div className="num_tags">Funny{ this.state.numFunnyTags || "" }</div>
+        //   <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.funny } data-category="funny"></input>
+        // </li>
+        // <li>
+        //   <div className="num_tags">Cool{ this.state.numCoolTags || "" }</div>
+        //   <input type="checkbox" onChange={ this._adjustCount } checked={ this.state.cool } data-category="cool"></input>
+        // </li>

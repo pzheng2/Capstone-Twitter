@@ -34,14 +34,16 @@ var Search = window.Search = React.createClass ({
   },
 
   render: function () {
-    var results = SearchResultStore.results().map(function (result) {
-      return <RestaurantIndexItem restaurant={ result } />;
+    var results = SearchResultStore.results().map(function (result, index) {
+      return (
+        <RestaurantIndexItem key={ index } restaurant={ result } />
+      );
     });
 
     var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
     var query = this.props.location.query.query;
     return (
-      <div>
+      <div className="body">
         <input type="text"
           value={ query }
           onChange={ this._onInput }
@@ -49,8 +51,7 @@ var Search = window.Search = React.createClass ({
         />
 
         <p>
-          Displaying { SearchResultStore.results().length }
-          of { SearchResultStore.totalCount() }
+          { "Displaying " + SearchResultStore.results().length + " of " + SearchResultStore.totalCount()}
         </p>
 
         <a href={ "#/search?query=" + query + "&page=" + nextPage }>

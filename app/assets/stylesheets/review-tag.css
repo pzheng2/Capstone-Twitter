@@ -5,8 +5,8 @@
 
 .review-tags li {
   display: block;
-  /*float: left;
-  width: 190px;*/
+  float: left;
+  width: 150px;
 }
 
 .review-tags input {
@@ -21,4 +21,11 @@
 
 .num_tags {
   display: block;
+}
+
+.review-tags-button {
+  background: #eee;
+  text-align: center;
+  width: 100px;
+  border: 1px solid black;
 }

@@ -17,7 +17,6 @@ var UserShow = window.UserShow = React.createClass({
   },
 
   componentWillUnmount: function() {
-    debugger
     UserStore.removeChangeListener(this._onChange);
   },
 
