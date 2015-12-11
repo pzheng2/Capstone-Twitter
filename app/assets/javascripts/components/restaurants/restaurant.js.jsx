@@ -10,9 +10,11 @@ var Restaurant = window.Restaurant = React.createClass ({
       name: "loading",
       address: "loading",
       phone: "loading",
+      rating: "loading",
       categories: [],
-      reviews: [],
+      reviews: []
     };
+
     return { restaurant: loadingRestaurant };
   },
 
@@ -69,6 +71,10 @@ var Restaurant = window.Restaurant = React.createClass ({
 
           <li className="restaurant-phone">
             { "Phone #: " + this.state.restaurant.phone }
+          </li>
+
+          <li className="restaurant-rating">
+            { "Rating: " + this.state.restaurant.rating }
           </li>
 
           <li className="restaurant-categories">

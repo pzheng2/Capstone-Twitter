@@ -17,24 +17,30 @@ var RestaurantIndexItem = window.RestaurantIndexItem = React.createClass ({
           <label>
 
             <div className="restaurant-index-items-container group">
-              <div className="restaurant-index-items-body group">
-                <label className="restaurant-index-items-name">
+
+              <ul className="restaurant-index-items-body group">
+                <li className="restaurant-index-items-name">
                   { restaurant.name }
-                </label>
+                </li>
 
-                <label className="restaurant-index-items-address">
+                <li className="restaurant-index-items-address">
                   { restaurant.address }
-                </label>
+                </li>
 
-                <label className="restaurant-index-items-phone">
+                <li className="restaurant-index-items-phone">
                   { restaurant.phone }
-                </label>
+                </li>
 
-                <label className="restaurant-index-items-categories">
+                <li className="restaurant-index-items-rating">
+                  { restaurant.rating }
+                </li>
+
+                <li className="restaurant-index-items-categories">
                   { restaurant.categories.join(", ") }
-                </label>
+                </li>
 
-              </div>
+              </ul>
+
             </div>
 
           </label>

@@ -63,6 +63,7 @@
 .restaurant-index-item:hover {
   background: #E51616;
   color: white;
+  opacity: 1;
 }
 
 .restaurant-index-items-body {
@@ -70,6 +71,17 @@
   padding: 10px 90px 15px 15px;
 }
 
+.restaurant-index-items-body li {
+  display: block;
+
+}
+
+.restaurant-index-items-body li:first-child {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*
 .restaurant-index-items-name {
   display: block;
   padding-bottom: 5px;
@@ -87,4 +99,4 @@
 
 .restaurant-index-items-categories {
   display: block;
-}
+}*/

@@ -36,11 +36,11 @@ var SessionForm = window.SessionForm = React.createClass({
           <li>{ this.state.errors }</li>
 
           <li>
-            <input className="input-animation" type="text" name="username" placeholder="Username" />
+            <input className="login-input input-animation" type="text" name="username" placeholder="Username" />
           </li>
 
           <li>
-            <input className="input-animation" type="password" name="password" placeholder="Password" />
+            <input className="login-input input-animation" type="password" name="password" placeholder="Password" />
           </li>
 
           <li><button className="login-button">Log In!</button></li>

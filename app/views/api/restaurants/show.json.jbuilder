@@ -1,11 +1,6 @@
-json.id @restaurant.id
-json.name @restaurant.name
-json.address @restaurant.address
-json.phone @restaurant.phone
-json.latitude @restaurant.latitude
-json.longitude @restaurant.longitude
-json.categories @restaurant.categories
+json.extract! @restaurant, :id, :name, :address, :phone, :image, :categories, :rating
 json.image_url asset_path(@restaurant.image.url)
+
 json.reviews @restaurant.reviews do |review|
   json.id review.id
   json.title review.title

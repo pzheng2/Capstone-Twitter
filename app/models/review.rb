@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
   validates :author_id, :restaurant_id, :title, :rating, presence: true
-  validates :rating, :inclusion => 1..10
+  validates :rating, :inclusion => 1..5
 
   belongs_to(
     :author,

@@ -57,11 +57,11 @@ var UserForm = window.UserForm = React.createClass({
           </li>
 
           <li>
-            <input className="input-animation" type="text" name="username" placeholder="Username" valueLink={ this.linkState("username") } />
+            <input className="login-input input-animation" type="text" name="username" placeholder="Username" valueLink={ this.linkState("username") } />
           </li>
 
           <li>
-            <input className="input-animation" type="password" name="password" placeholder="Password" valueLink={ this.linkState("password") } />
+            <input className="login-input input-animation" type="password" name="password" placeholder="Password" valueLink={ this.linkState("password") } />
           </li>
 
           <li><button className="login-button">Sign Up</button></li>

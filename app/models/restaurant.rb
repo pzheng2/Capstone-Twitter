@@ -40,8 +40,13 @@ class Restaurant < ActiveRecord::Base
   end
 
   def rating
-    ratings = reviews.map {|review| review.rating}
-    ratings.reduce(:+)/ratings.length
+    unless reviews.empty?
+      ratings = reviews.map {|review| review.rating}
+      rating = (ratings.reduce(:+).to_f/ratings.length).round(1)
+    else
+      return 0
+    end
+    rating
   end
 
 end

@@ -49,8 +49,12 @@ var ReviewForm = window.ReviewForm = React.createClass ({
     this.setState({ description: event.currentTarget.value });
   },
 
+  // _updateRating: function (event) {
+  //   this.setState({ rating: event.currentTarget.value });
+  // },
+
   _updateRating: function (event) {
-    this.setState({ rating: event.currentTarget.value });
+    this.setState({ rating: event.currentTarget.id.slice(-1) });
   },
 
   errorCallback: function (errors) {
@@ -95,7 +99,9 @@ var ReviewForm = window.ReviewForm = React.createClass ({
           <ul className="review-form-components group">
             <li><input className="input" type="text" onChange={this._updateTitle} value={this.state.title} placeholder="Title" /></li>
             <li><textarea className="input" onChange={this._updateDescription} value={this.state.description} placeholder="Description"/></li>
-            <li><input className="input" type="text" onChange={this._updateRating} value={this.state.rating} placeholder="Rating (1-10)" /></li>
+            <li>
+              <Rating updateRating={ this._updateRating }/>
+            </li>
             <li><button>Submit</button></li>
             <li><Link to={ "/restaurants/" + this.props.params.id }>Cancel</Link></li>
           </ul>

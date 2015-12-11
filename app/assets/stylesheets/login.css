@@ -14,11 +14,17 @@
 	width: auto;
 	margin: 5px;
 }
-
+/*
 li input, li button {
 	display: block;
 	margin: auto;
+}*/
+
+.login-button, .login-input {
+	display: block;
+	margin: auto;
 }
+
 
 li input {
 	background: #eee;
