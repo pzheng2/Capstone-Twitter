@@ -39,4 +39,9 @@ class Restaurant < ActiveRecord::Base
     tags
   end
 
+  def rating
+    ratings = reviews.map {|review| review.rating}
+    ratings.reduce(:+)/ratings.length
+  end
+
 end
