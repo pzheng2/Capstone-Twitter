@@ -61,7 +61,10 @@ var Restaurant = window.Restaurant = React.createClass ({
       <div className="restaurant-show-body body">
         <Link to="/">Back to Restaurants Index</Link>
         <img className="restaurant-image" src={ this.state.restaurant.image_url } />
-        <h4 className="restaurant-name">{ this.state.restaurant.name }</h4>
+        <h4 className="restaurant-name">{ this.state.restaurant.name }
+          <div className={ "restaurant-rating rating-" + this.state.restaurant.rating }>
+          </div>
+        </h4>
 
         <ul className="restaurant-info group">
 
@@ -71,10 +74,6 @@ var Restaurant = window.Restaurant = React.createClass ({
 
           <li className="restaurant-phone">
             { "Phone #: " + this.state.restaurant.phone }
-          </li>
-
-          <li className="restaurant-rating">
-            { "Rating: " + this.state.restaurant.rating }
           </li>
 
           <li className="restaurant-categories">
