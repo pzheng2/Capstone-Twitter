@@ -7,10 +7,22 @@ var Map = window.Map = React.createClass({
     };
   },
 
-  setupMap: function () {
+  getPosition: function () {
+    var success = function (geoPosition) {
+      var lat = geoPosition.coords.latitude;
+      var lng = geoPosition.coords.longitude;
+      this.setupMap(lat, lng);
+    }.bind(this);
+
+    navigator.geolocation.getCurrentPosition(success);
+  },
+
+  setupMap: function (lat ,lng) {
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
-      center: { lat: 40.725024, lng: -73.996792 },
+      // center: { lat: 40.725024, lng: -73.996792 },
+      center: { lat: lat, lng: lng },
+
       zoom: 13
     };
 
@@ -50,7 +62,7 @@ var Map = window.Map = React.createClass({
   },
 
   componentDidMount: function () {
-    this.setupMap();
+    this.getPosition();
     RestaurantStore.addChangeListener(this.manageMarkers);
   },
 
