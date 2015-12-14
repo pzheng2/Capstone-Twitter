@@ -61,3 +61,5 @@ var Home = window.Home = React.createClass({
 
 });
         // <RestaurantIndex />
+        // <div className="tab-names-div group">
+        // </div>

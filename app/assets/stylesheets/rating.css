@@ -43,6 +43,15 @@
   margin-top: 5px;
 }
 
+.review-rating {
+  width: 90px;
+  height: 20px;
+  float: right;
+  background-repeat: no-repeat;
+  margin-left: 5px;
+}
+
+
 .rating-0 {=
   background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 2px;
 }

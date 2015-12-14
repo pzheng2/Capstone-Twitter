@@ -6,14 +6,12 @@ var Review = window.Review = React.createClass({
         <ul>
           <li className="review-title">
             { this.props.review.title }
+            <div className = { "review-rating rating-" + this.props.review.rating }>
+            </div>
           </li>
 
           <li className="review-date">
             { this.props.review.date }
-          </li>
-
-          <li className="review-rating">
-            { this.props.review.rating }
           </li>
 
           <li className="review-description">
