@@ -1,0 +1,7 @@
+.tab-name {
+  display: block;
+  float: left;
+  width: 200px;
+  text-align: center;
+  border: 1px solid black;
+}

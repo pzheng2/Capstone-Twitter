@@ -1,6 +1,6 @@
 var Tab = React.createClass({
   getInitialState: function () {
-    return { selected: 0 };
+    return { selected: 5 };
   },
 
   changeTab: function (e) {
@@ -12,9 +12,9 @@ var Tab = React.createClass({
 
     for (var i = 0; i < this.props.tabs.length; i++) {
       if (i === this.state.selected) {
-        tabNames.push(<li id={i} onClick={this.changeTab}><b><a href="#">{this.props.tabs[i].name}</a></b></li>);
+        tabNames.push(<li className="tab-name" key={i} id={i} onClick={this.changeTab}><b><a href="#">{this.props.tabs[i].name}</a></b></li>);
       } else {
-        tabNames.push(<li id={i} onClick={this.changeTab}><a href="#">{this.props.tabs[i].name}</a></li>);
+        tabNames.push(<li className="tab-name" key={i} id={i} onClick={this.changeTab}><a href="#">{this.props.tabs[i].name}</a></li>);
       }
     }
 
@@ -26,7 +26,7 @@ var Tab = React.createClass({
         <div>
           {
             this.props.tabs[this.state.selected].content.map(function (restaurant) {
-              return <RestaurantIndexItem restaurant={ restaurant } />;                
+              return <RestaurantIndexItem key={ restaurant.id } restaurant={ restaurant } />;
             })
           }
         </div>

@@ -10,8 +10,8 @@ class Api::TabsController < ApplicationController
         @tabsInfo[category].push(restaurant)
       end
     end
-
-    render json: @tabsInfo
+    # render json: @tabsInfo
+    
   end
 
 end

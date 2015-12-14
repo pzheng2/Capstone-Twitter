@@ -1,6 +1,6 @@
-@tabsInfo do |tag|
-  json.array!(tag) do |restaurant|
-    json.extract! restaurant, :id, :name, :address, :phone, :image, :categories
+json.array!(@tabsInfo) do |category, restaurants|
+  json.array!(restaurants) do |restaurant|
+    json.extract! restaurant, :id, :name, :address, :phone, :image, :categories, :rating
     json.image_url asset_path(restaurant.image.url)
   end
 end

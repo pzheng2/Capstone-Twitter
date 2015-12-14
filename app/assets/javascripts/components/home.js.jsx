@@ -12,7 +12,12 @@ var Home = window.Home = React.createClass({
   },
 
   _tabsChanged: function () {
-    this.setState({ tabs: TabStore.all() });
+    var tabs = { bar: [], american: [], italian: [], asian: [], spanish: [], mexican: [] };
+    var restaurants = TabStore.all();
+    Object.keys(tabs).forEach(function (category, i) {
+      tabs[category] = restaurants[i];
+    });
+    this.setState({ tabs: tabs });
   },
 
   componentDidMount: function () {
@@ -32,21 +37,27 @@ var Home = window.Home = React.createClass({
 
   render: function () {
     var tabsList = [];
+    var tabsComponent = null;
 
     this.state.tabs.bar && Object.keys(this.state.tabs).forEach(function (category) {
       tabsList.push({ name: category, content: this.state.tabs[category] });
     }.bind(this));
 
+    if (tabsList.length) {
+      tabsComponent = <Tab tabs={ tabsList } />;
+    }
+
     return (
       <div className="home-body group">
-        <RestaurantIndex />
         <Map
           handleMarkerClick={ this.handleMarkerClick }
           restaurants={ this.state.restaurants }
         />
+        { tabsComponent }
 
       </div>
     );
   }
 
 });
+        // <RestaurantIndex />

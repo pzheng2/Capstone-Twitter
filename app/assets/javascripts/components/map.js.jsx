@@ -20,8 +20,8 @@ var Map = window.Map = React.createClass({
   setupMap: function (lat ,lng) {
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
-      // center: { lat: 40.725024, lng: -73.996792 },
       center: { lat: lat, lng: lng },
+      center: { lat: 40.725024, lng: -73.996792 },
 
       zoom: 13
     };
