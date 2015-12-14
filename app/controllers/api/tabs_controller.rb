@@ -6,12 +6,10 @@ class Api::TabsController < ApplicationController
     @tabsInfo.keys.each do |category|
       RestaurantTag.where(category: category).each do |tag|
         restaurant = tag.restaurant
-        # restaurant["categories"] = restaurant.categories
         @tabsInfo[category].push(restaurant)
       end
     end
-    # render json: @tabsInfo
-    
+
   end
 
 end

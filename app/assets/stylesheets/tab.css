@@ -33,8 +33,12 @@
   border-top: none;
 }
 
+.tab-name:last-child {
+  border-bottom: 1px solid #D0D0D0;
+}
+
 .tab-name:hover {
-  background: #787878;
+  background: #E51616;
 }
 
 .selected {

@@ -1,4 +1,7 @@
 var Map = window.Map = React.createClass({
+
+  mixins: [ReactRouter.History],
+
   getInitialState: function () {
     return {
       markers: [],
@@ -21,9 +24,8 @@ var Map = window.Map = React.createClass({
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
       center: { lat: lat, lng: lng },
-      center: { lat: 40.725024, lng: -73.996792 },
-
-      zoom: 13
+      // center: { lat: 40.725024, lng: -73.996792 },
+      zoom: 10
     };
 
     this.map = new google.maps.Map(map, mapOptions);
@@ -56,7 +58,9 @@ var Map = window.Map = React.createClass({
         "northEast": { "lat": latLngBounds.getNorthEast().lat(), "lng": latLngBounds.getNorthEast().lng() },
         "southWest": { "lat": latLngBounds.getSouthWest().lat(), "lng": latLngBounds.getSouthWest().lng() }
       };
+      this.props.getBounds(bounds);
       ApiUtil.fetchRestaurantsInBounds(bounds);
+
     }.bind(this));
 
   },
@@ -83,9 +87,9 @@ var Map = window.Map = React.createClass({
         );
 
         infoWindow = new google.maps.InfoWindow({ content: sContent });
-
         marker = new google.maps.Marker({
           position: latLng,
+          id: restaurant.id,
           label: (i + 1).toString(),
           map: this.map,
           info: sContent
@@ -99,6 +103,12 @@ var Map = window.Map = React.createClass({
         google.maps.event.addListener(marker, 'mouseout', function () {
           infoWindow.close(this.map, this);
         });
+
+        var that = this;
+
+        google.maps.event.addListener(marker, 'click', function () {
+          that.props.handleMarkerClick(this);
+        }.bind(marker));
 
         this.state.prevRestaurantMarkers[restaurant.name] = marker;
         marker.setMap(this.map);

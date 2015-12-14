@@ -31,8 +31,13 @@ var Home = window.Home = React.createClass({
     TabStore.removeChangeListener(this._tabsChanged);
   },
 
-  handleMarkerClick: function (restaurant) {
-    this.props.history.pushState(null, "restaurants/" + restaurant.id);
+  handleMarkerClick: function (marker) {
+    this.props.history.pushState(null, "restaurants/" + marker.id);
+  },
+
+  getBounds: function (bounds) {
+    this.bounds = bounds;
+    TabApiUtil.fetchTabs(bounds);
   },
 
   render: function () {
@@ -50,6 +55,7 @@ var Home = window.Home = React.createClass({
     return (
       <div className="home-body group">
         <Map
+          getBounds={ this.getBounds }
           handleMarkerClick={ this.handleMarkerClick }
           restaurants={ this.state.restaurants }
         />

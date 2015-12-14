@@ -40,14 +40,29 @@ var Search = window.Search = React.createClass ({
       );
     });
 
-    var nextPage = (parseInt(this.props.location.query.page) || 1) + 1;
+    var currentPage = parseInt(this.props.location.query.page);
+    var nextPage = (currentPage || 1) + 1;
+    var prevPage = (currentPage || 1) - 1;
     var query = this.props.location.query.query;
+    var totalPages = SearchResultStore.totalCount() / 25;
+    var prevButton, nextButton;
 
-    var nextButton = (
-      <a href={ "#/search?query=" + query + "&page=" + nextPage }>
-        Next
-      </a>
-    );
+    if (1 < currentPage) {
+      prevButton = (
+        <a href={ "#/search?query=" + query + "&page=" + prevPage }>
+          Previous
+        </a>
+      );
+    }
+
+    if (totalPages > currentPage) {
+      nextButton = (
+        <a href={ "#/search?query=" + query + "&page=" + nextPage }>
+          Next
+        </a>
+      );
+
+    }
 
     return (
       <div className="body">
@@ -64,6 +79,8 @@ var Search = window.Search = React.createClass ({
         <ul className="search-results">
           { results }
         </ul>
+        { nextButton }
+        { prevButton }
 
 
       </div>
