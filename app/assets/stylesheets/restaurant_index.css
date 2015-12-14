@@ -48,12 +48,6 @@
   float: right;
 }
 
-.restaurant-index-items-container label {
-  display: block;
-  width: 300px;
-  float: left;
-}
-
 .restaurant-index-items-image {
   width: 150px;
   height: 100px;
@@ -73,7 +67,9 @@
 
 .restaurant-index-items-body li {
   display: block;
-
+  width: 100%;
+  float: left;
+  font-size: 14px;
 }
 
 .restaurant-index-items-body li:first-child {

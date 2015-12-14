@@ -4,6 +4,7 @@
     font-size: 0;
     position: relative;
 }
+
 .rating-input {
     float: right;
     width: 16px;
@@ -17,6 +18,7 @@
 .rating-input:checked ~ .rating-star {
     background-position: 0 0;
 }
+
 .rating-star,
 .rating:hover .rating-star {
     position: relative;
@@ -31,4 +33,52 @@
   padding-left: 10px;
   display: inline-block;
   width: 550px;
+}
+
+.restaurant-rating {
+  width: 90px;
+  height: 20px;
+  float: right;
+  background-repeat: no-repeat;
+  margin-top: 5px;
+}
+
+.rating-0 {=
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 2px;
+}
+
+.rating-1 {
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -18px;
+}
+
+.rating-1\.5 {
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -36px;
+}
+
+.rating-2 {
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -56px;
+}
+
+.rating-2\.5 {
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -73px;
+}
+
+.rating-3 {
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -90px;
+
+}
+.rating-3.5 {
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -908px;
+}
+
+.rating-4 {
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -126px;
+
+}
+.rating-4\.5 {
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -145px;
+}
+
+.rating-5 {
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -162px;
 }
