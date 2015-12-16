@@ -104,6 +104,7 @@ var TagForm = window.TagForm = React.createClass ({
   },
 
   render: function () {
+    
     var usefulClass = "review-tags-button", funnyClass = "review-tags-button", coolClass = "review-tags-button";
     if (this.state.useful)
       usefulClass += " pressed";

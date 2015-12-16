@@ -26,7 +26,7 @@ var Tab = React.createClass({
         <div className="tab-contents">
           {
             this.props.tabs[this.state.selected].content.map(function (restaurant) {
-              return <RestaurantIndexItem key={ restaurant.id } restaurant={ restaurant } />;
+              return <RestaurantIndexItem key={ restaurant.id } indexPage={ true } restaurant={ restaurant } />;
             })
           }
         </div>

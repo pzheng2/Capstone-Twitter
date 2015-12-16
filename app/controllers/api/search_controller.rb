@@ -5,6 +5,7 @@ class Api::SearchController < ApplicationController
       .multisearch(params[:query])
       .includes(:searchable)
       .page(params[:page])
+      .per(20)
   end
 
 end

@@ -34,9 +34,9 @@ var Search = window.Search = React.createClass ({
   },
 
   render: function () {
-    var results = SearchResultStore.results().map(function (result, index) {
+    var results = SearchResultStore.results().map(function (restaurant, index) {
       return (
-        <RestaurantIndexItem key={ index } restaurant={ result } />
+        <li className="search-results-list" key={ index }><RestaurantIndexItem restaurant={ restaurant } /></li>
       );
     });
 
@@ -44,12 +44,12 @@ var Search = window.Search = React.createClass ({
     var nextPage = (currentPage || 1) + 1;
     var prevPage = (currentPage || 1) - 1;
     var query = this.props.location.query.query;
-    var totalPages = SearchResultStore.totalCount() / 25;
+    var totalPages = SearchResultStore.totalCount() / 20;
     var prevButton, nextButton;
 
     if (1 < currentPage) {
       prevButton = (
-        <a href={ "#/search?query=" + query + "&page=" + prevPage }>
+        <a href={ "#/search?query=" + query + "&page=" + prevPage } className="prev">
           Previous
         </a>
       );
@@ -57,7 +57,7 @@ var Search = window.Search = React.createClass ({
 
     if (totalPages > currentPage) {
       nextButton = (
-        <a href={ "#/search?query=" + query + "&page=" + nextPage }>
+        <a href={ "#/search?query=" + query + "&page=" + nextPage } className="next">
           Next
         </a>
       );
@@ -76,11 +76,11 @@ var Search = window.Search = React.createClass ({
           { "Displaying " + SearchResultStore.results().length + " of " + SearchResultStore.totalCount()}
         </p>
 
-        <ul className="search-results">
+        <ul className="search-results group">
           { results }
         </ul>
-        { nextButton }
         { prevButton }
+        { nextButton }
 
 
       </div>

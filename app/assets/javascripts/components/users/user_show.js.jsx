@@ -22,6 +22,7 @@ var UserShow = window.UserShow = React.createClass({
 
   render: function() {
     var user = this.state.user;
+
     if (!user) {
       return (
         <div className="body">DONT HAVE A USER TO RENDER</div>
@@ -40,7 +41,7 @@ var UserShow = window.UserShow = React.createClass({
     var reviewRatings = [];
     if (user) {
       Object.keys(user.num_reviews_rating).forEach(function (rating) {
-        reviewRatings.push(<li key={ rating }>{ rating + ": " + user.num_reviews_rating[rating] }</li>);
+        reviewRatings.push(<li key={ rating }>{ rating + "-star : " + user.num_reviews_rating[rating] }</li>);
       });
     }
 
@@ -55,12 +56,19 @@ var UserShow = window.UserShow = React.createClass({
       <div className="body">
         <h1 className="title">UserShow: { user.username }</h1>
 
-        <h3>Users Reviews:</h3>
-        <ul className="users-posts">{ posts }</ul>
-        <h3>Review Ratings:</h3>
-        <ul className="users-ratings">{ reviewRatings }</ul>
-        <h3>Tag Categories:</h3>
-        <ul className="users-tags">{ tagCategories }</ul>
+        <ul className="user-posts">
+          <li className="header">Users Reviews:</li>
+          { posts }
+        </ul>
+        <ul className="user-ratings">
+          <li className="header">Review Ratings:</li>
+          { reviewRatings }
+        </ul>
+
+        <ul className="user-tags">
+          <li className="header">Likes:</li>
+          { tagCategories }
+        </ul>
       </div>
     );
   },

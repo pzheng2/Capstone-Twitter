@@ -18,10 +18,8 @@ UsersApiUtil = {
       dataType: 'json',
       success: function (user) {
         UserActions.receiveUser(user);
-        debugger
       },
       error: function (error) {
-        debugger
       }
     });
   },

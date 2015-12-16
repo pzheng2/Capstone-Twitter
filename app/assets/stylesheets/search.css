@@ -15,5 +15,21 @@
 }
 
 .pages-info {
-  margin-top: 10px;
+  margin: 10px 0 0 5px;
+}
+
+.search-results {
+  width: 1300px;
+}
+.search-results-list {
+  width: 611px;
+  float: left;
+}
+
+.next {
+  float: right;
+}
+
+.prev {
+  float: left;
 }

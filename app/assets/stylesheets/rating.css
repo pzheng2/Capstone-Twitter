@@ -37,15 +37,15 @@
 
 .restaurant-rating {
   width: 90px;
-  height: 20px;
+  height: 19px;
   float: right;
   background-repeat: no-repeat;
-  margin-top: 5px;
+  /*margin-top: 5px;*/
 }
 
 .review-rating {
   width: 90px;
-  height: 20px;
+  height: 19px;
   float: right;
   background-repeat: no-repeat;
   margin-left: 5px;
@@ -57,7 +57,7 @@
 }
 
 .rating-1 {
-  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -18px;
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -19px;
 }
 
 .rating-1\.5 {
@@ -73,7 +73,7 @@
 }
 
 .rating-3 {
-  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -90px;
+  background: url("http://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_styleguide/c2252a4cd43e/assets/img/stars/stars_map.png") 0 -91px;
 
 }
 .rating-3.5 {

@@ -10,10 +10,20 @@ var RestaurantIndexItem = window.RestaurantIndexItem = React.createClass ({
 
   render: function () {
     var restaurant = this.props.restaurant;
+    var categoriesString;
+    if (restaurant.categories) {
+      categoriesString = restaurant.categories.join(", ");
+    }
+
+    var grow = "";
+    if (this.props.indexPage) {
+      grow = "hvr-grow";
+    }
+
     return (
-      <div className="hvr-grow">
-        <li onClick={ this._onClick } className="restaurant-index-item" id={ restaurant.id } key={ restaurant.id }>
-          <img className="restaurant-index-items-image" src={ restaurant.image_url } />
+      <div className={ grow }>
+        <div onClick={ this._onClick } className="restaurant-index-item" id={ restaurant.id } key={ restaurant.id }>
+          <img className="restaurant-index-items-image" src={ restaurant.image_url || restaurant.image } />
 
             <div className="restaurant-index-items-container group">
 
@@ -33,14 +43,14 @@ var RestaurantIndexItem = window.RestaurantIndexItem = React.createClass ({
                 </li>
 
                 <li className="restaurant-index-items-categories">
-                  { restaurant.categories.join(", ") }
+                  { categoriesString }
                 </li>
 
               </ul>
 
             </div>
 
-        </li>
+        </div>
       </div>
     );
   }
