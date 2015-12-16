@@ -32,8 +32,22 @@ var UserShow = window.UserShow = React.createClass({
     if (user) {
       user.reviews && user.reviews.forEach(function (review) {
         posts.push(
-          <li key={review.id}><Review review={ review } /></li>
+          <li key={ review.id }><Review review={ review } /></li>
         );
+      });
+    }
+
+    var reviewRatings = [];
+    if (user) {
+      Object.keys(user.num_reviews_rating).forEach(function (rating) {
+        reviewRatings.push(<li key={ rating }>{ rating + ": " + user.num_reviews_rating[rating] }</li>);
+      });
+    }
+
+    var tagCategories = [];
+    if (user) {
+      Object.keys(user.num_tags_category).forEach(function (category) {
+        tagCategories.push(<li key={ category }>{ category + ": " + user.num_tags_category[category] }</li>);
       });
     }
 
@@ -42,7 +56,11 @@ var UserShow = window.UserShow = React.createClass({
         <h1 className="title">UserShow: { user.username }</h1>
 
         <h3>Users Reviews:</h3>
-        <ul className="users-index">{ posts }</ul>
+        <ul className="users-posts">{ posts }</ul>
+        <h3>Review Ratings:</h3>
+        <ul className="users-ratings">{ reviewRatings }</ul>
+        <h3>Tag Categories:</h3>
+        <ul className="users-tags">{ tagCategories }</ul>
       </div>
     );
   },

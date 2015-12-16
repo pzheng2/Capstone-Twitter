@@ -4,13 +4,10 @@ TabApiUtil = {
     $.ajax({
       url: '/api/tabs',
       type: 'GET',
-      dataType: 'json',
-      bounds: bounds,
+      // dataType: 'json',
+      data: { bounds: bounds },
       success: function (tabs) {
         TabActions.receiveTabs(tabs);
-      },
-      error: function (a) {
-        debugger
       }
     });
   }

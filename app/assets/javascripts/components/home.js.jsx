@@ -21,7 +21,7 @@ var Home = window.Home = React.createClass({
   },
 
   componentDidMount: function () {
-    TabApiUtil.fetchTabs();
+    // TabApiUtil.fetchTabs();
     RestaurantStore.addChangeListener(this._restaurantsChanged);
     TabStore.addChangeListener(this._tabsChanged);
   },

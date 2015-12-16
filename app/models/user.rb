@@ -36,6 +36,32 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def num_reviews
+    reviews.count
+  end
+
+  def num_reviews_rating
+    ratings = { 1 => [], 2=> [], 3 => [], 4 => [], 5 => [] }
+    ratings.keys.each do |rating|
+      ratings[rating] = reviews.where("rating = ?", rating).count
+    end
+
+    ratings
+  end
+  def num_tags
+
+    tags.count
+  end
+
+  def num_tags_category
+    categories = { "useful" => [], "funny" => [], "cool" => [] }
+    categories.keys.each do |category|
+      categories[category] = tags.where("category = ?", category).count
+    end
+
+    categories
+  end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64

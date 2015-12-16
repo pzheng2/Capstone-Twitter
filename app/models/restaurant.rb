@@ -31,15 +31,12 @@ class Restaurant < ActiveRecord::Base
     )
   end
 
-  def self.tabs_in_bounds(bounds)
-    @tabsInfo = { bar: [], american: [], italian: [], asian: [], spanish: [], mexican: [] }
-    # @tabsInfo.keys.each do |category|
-
-    RestaurantTag.joins(:restaurant).where(
+  def self.tabs_in_bounds(bounds, category)
+    Restaurant.joins(:restaurant_tags).where(
       "(? > latitude) AND (latitude > ?) AND (? > longitude) AND (longitude > ?) AND (category = ?)",
       bounds["northEast"]["lat"].to_f, bounds["southWest"]["lat"].to_f,
       bounds["northEast"]["lng"].to_f, bounds["southWest"]["lng"].to_f,
-      "mexican"
+      category
     )
   end
 
