@@ -30,7 +30,7 @@ var NavigationBar = window.NavigationBar = React.createClass ({
 
   render: function () {
     var Link = ReactRouter.Link;
-    var options, message;
+    var options, message, signup;
 
     if (CurrentUserStore.isLoggedIn()) {
       message = (
