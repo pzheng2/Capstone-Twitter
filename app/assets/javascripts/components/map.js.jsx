@@ -12,8 +12,10 @@ var Map = window.Map = React.createClass({
 
   getPosition: function () {
     var success = function (geoPosition) {
-      var lat = geoPosition.coords.latitude;
-      var lng = geoPosition.coords.longitude;
+      var lat = 40.725024;
+      var lng = -73.996792;
+      // var lat = geoPosition.coords.latitude;
+      // var lng = geoPosition.coords.longitude;
       this.setupMap(lat, lng);
     }.bind(this);
 
