@@ -60,15 +60,17 @@ var UserShow = window.UserShow = React.createClass({
           <li className="header">Users Reviews:</li>
           { posts }
         </ul>
-        <ul className="user-ratings">
-          <li className="header">Review Ratings:</li>
-          { reviewRatings }
-        </ul>
+        <div className="ratings-tags">
+          <ul className="user-ratings">
+            <li className="header">Review Ratings:</li>
+            { reviewRatings }
+          </ul>
 
-        <ul className="user-tags">
-          <li className="header">Likes:</li>
-          { tagCategories }
-        </ul>
+          <ul className="user-tags">
+            <li className="header">Likes:</li>
+            { tagCategories }
+          </ul>
+        </div>
       </div>
     );
   },
