@@ -48,6 +48,5 @@ var SessionForm = window.SessionForm = React.createClass({
       </form>
     );
   },
-          // <li><h1>Log In!</h1></li>
 
 });

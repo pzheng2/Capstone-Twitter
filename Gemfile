@@ -21,6 +21,7 @@ gem 'pg_search'
 gem 'kaminari'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
+gem 'yelp', require: 'yelp'
 
 group :development, :test do
   gem 'better_errors'

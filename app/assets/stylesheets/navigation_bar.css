@@ -3,7 +3,7 @@
 .nav {
   display: block;
   height: inherit;
-  width: 1400px;
+  min-width: 1250px;
   margin: auto;
   background: transparent;
   margin-bottom: 30px;

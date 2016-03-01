@@ -71,34 +71,3 @@ var UserForm = window.UserForm = React.createClass({
   },
 
 });
-      // <form className="login-body group" onSubmit={ this.submit }>
-      //   <ul>
-      //     <li>
-      //       <div className="errors">
-      //         {
-      //           errors.map(function (error) {
-      //             return <div>{error}</div>;
-      //           })
-      //         }
-      //       </div>
-      //     </li>
-      //
-      //     <li>
-      //       <input className="input animation" type="text"
-      //         name="username"
-      //         valueLink={ this.linkState("username") }
-      //         placeholder="Username" />
-      //     </li>
-      //
-      //     <li>
-      //       <input type="password"
-      //         name="password"
-      //         valueLink={ this.linkState("password") }
-      //         placeholder="Password" />
-      //     </li>
-      //
-      //     <li>
-      //       <button>Join!</button>
-      //     </li>
-      //   </ul>
-      // </form>

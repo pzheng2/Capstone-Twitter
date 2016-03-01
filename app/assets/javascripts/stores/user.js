@@ -11,7 +11,6 @@
   };
 
   root.UserStore = $.extend({}, EventEmitter.prototype, {
-
     addChangeListener: function (callback) {
       this.on(CHANGE_EVENT, callback);
     },
@@ -36,6 +35,7 @@
           break;
       }
     }),
+
 
     findUserById: function (id) {
       for (var i = 0; i < _users.length; i++) {

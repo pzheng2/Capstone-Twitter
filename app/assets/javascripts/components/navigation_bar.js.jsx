@@ -60,7 +60,7 @@ var NavigationBar = window.NavigationBar = React.createClass ({
     }
 
     return (
-      <div className="nav group">
+      <div className="nav mobile-container group">
         <header><h1 className="nav-logo" onClick={this.redirectToRoot}>Zelp</h1></header>
         <ul className="nav-user-options group">
 

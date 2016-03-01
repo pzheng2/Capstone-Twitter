@@ -1,0 +1,7 @@
+@media screen and (max-width: 580px) {
+  .mobile-container {
+    width: 85px;
+    float: left;
+  }
+
+}

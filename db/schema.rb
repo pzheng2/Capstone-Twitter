@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20151125212121) do
     t.integer  "restaurant_id", null: false
     t.string   "title",         null: false
     t.text     "description"
-    t.integer  "rating",        null: falseg
+    t.integer  "rating",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

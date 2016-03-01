@@ -2,7 +2,6 @@ class Api::SessionsController < ApplicationController
 
   def show
     unless current_user
-      # render json: { errors: ["Need to log in to write review"] }, status: 400
       render json: { username: "" }
       return
     end

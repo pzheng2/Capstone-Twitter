@@ -17,25 +17,26 @@ var Map = window.Map = React.createClass({
       this.setupMap(lat, lng);
     }.bind(this);
 
-    navigator.geolocation.getCurrentPosition(success);
+    var error = function (error) {
+      var defaultLat = 40.725024;
+      var defaultLng = -73.996792;
+      this.setupMap(defaultLat, defaultLng);
+    }.bind(this);
+    navigator.geolocation.getCurrentPosition(success, error);
+
   },
 
   setupMap: function (lat ,lng) {
+
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
       center: { lat: lat, lng: lng },
-      // center: { lat: 40.725024, lng: -73.996792 },
       zoom: 15
     };
 
     this.map = new google.maps.Map(map, mapOptions);
 
     var mapStyles = [
-      // {
-      //   stylers: [
-      //     { saturation: 100 }
-      //   ]
-      // },
       {
         featureType: "poi",
         stylers: [
@@ -90,7 +91,6 @@ var Map = window.Map = React.createClass({
         marker = new google.maps.Marker({
           position: latLng,
           id: restaurant.id,
-          label: (i + 1).toString(),
           map: this.map,
           info: sContent
         });

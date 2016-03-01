@@ -46,7 +46,6 @@ var Restaurant = window.Restaurant = React.createClass ({
   },
 
   render: function () {
-    console.log(this.state.restaurant.reviews);
     var tags = [];
     var Link = ReactRouter.Link;
     var reviewURL = "/restuarants/" + this.restaurantId + "/review";

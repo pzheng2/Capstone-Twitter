@@ -53,7 +53,7 @@ var Home = window.Home = React.createClass({
     }
 
     return (
-      <div className="home-body group">
+      <div className="home-body mobile-container group">
         <Map
           getBounds={ this.getBounds }
           handleMarkerClick={ this.handleMarkerClick }
